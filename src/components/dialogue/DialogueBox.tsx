@@ -122,7 +122,7 @@ export function DialogueBox({ line, textSpeed, onComplete }: Props) {
     >
       <div className="max-w-4xl mx-auto bg-void bg-opacity-90 border border-spirit-blue rounded-lg p-4">
         {line.speaker !== 'narrator' && (
-          <div className="text-celestial-gold font-cinzel text-sm mb-1 capitalize">
+          <div className="text-celestial-gold font-rajdhani text-sm font-semibold mb-1 tracking-widest uppercase">
             {speakerDisplay}
           </div>
         )}
