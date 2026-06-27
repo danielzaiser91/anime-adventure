@@ -30,10 +30,17 @@ jobs:
           set -euo pipefail
 
           VERSION=$(node -p "require('./package.json').version")
-          COMMIT_MSG=$(git log -1 --pretty=format:"%s" 2>/dev/null || echo "New update deployed")
+
+          NOTES_FILE=".github/release-notes.json"
+          if [ -f "$NOTES_FILE" ]; then
+            CHANGELOG=$(jq -r --arg v "$VERSION" '.[$v] // empty' "$NOTES_FILE")
+          fi
+          if [ -z "${CHANGELOG:-}" ]; then
+            CHANGELOG=$(git log -1 --pretty=format:"%s" 2>/dev/null || echo "New update deployed")
+          fi
 
           echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "commit_msg=$COMMIT_MSG" >> $GITHUB_OUTPUT
+          echo "changelog=$CHANGELOG" >> $GITHUB_OUTPUT
 
           if [ "${{ github.event_name }}" = "release" ]; then
             echo "title=🎮 New Release: v$VERSION" >> $GITHUB_OUTPUT
@@ -46,7 +53,7 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           VERSION: ${{ steps.meta.outputs.version }}
           TITLE: ${{ steps.meta.outputs.title }}
-          COMMIT: ${{ steps.meta.outputs.commit_msg }}
+          CHANGELOG: ${{ steps.meta.outputs.changelog }}
         run: |
           set -euo pipefail
 
@@ -60,11 +67,11 @@ jobs:
 
           EMBEDS=$(jq -n \
             --arg title "$TITLE" \
-            --arg commit "$COMMIT" \
+            --arg changelog "$CHANGELOG" \
             --arg version "v$VERSION" \
             '[{
               "title": $title,
-              "description": ("**Chronicles of the Celestial Blade** has been updated!\n\n> " + $commit),
+              "description": ("**Chronicles of the Celestial Blade** has been updated!\n\n" + $changelog),
               "url": "https://danielzaiser91.github.io/anime-adventure/",
               "color": 4286489,
               "fields": [
