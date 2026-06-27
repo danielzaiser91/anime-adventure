@@ -109,7 +109,7 @@ export function DialogueBox({ line, textSpeed, onComplete }: Props) {
     }
   }
 
-  const terms = GLOSSARY[language] ?? GLOSSARY.en;
+  const terms: GlossaryTerm[] = GLOSSARY[language] ?? GLOSSARY.en ?? [];
   const speakerDisplay = line.speaker === 'kai' ? resolvedName : line.speaker;
 
   return (
