@@ -74,29 +74,31 @@ jobs:
               "timestamp": (now | todate)
             }]')
 
+          TMPFILE=$(mktemp)
+
           if [ -n "$EXISTING_MSG_ID" ]; then
             echo "Version $VERSION already posted (message $EXISTING_MSG_ID) — editing in place."
-            # PATCH only accepts embeds (no username/avatar_url)
-            PATCH_PAYLOAD=$(jq -n --argjson embeds "$EMBEDS" '{"embeds": $embeds}')
+            jq -n --argjson embeds "$EMBEDS" '{"embeds": $embeds}' > "$TMPFILE"
             curl -s -X PATCH \
                  -H "Content-Type: application/json" \
-                 -d "$PATCH_PAYLOAD" \
+                 -d "@$TMPFILE" \
                  "$DISCORD_WEBHOOK_URL/messages/$EXISTING_MSG_ID"
           else
             echo "New version $VERSION — posting new message."
-            POST_PAYLOAD=$(jq -n \
+            jq -n \
               --arg username "Celestial Blade News" \
               --arg avatar "https://danielzaiser91.github.io/anime-adventure/assets/logo.svg" \
               --argjson embeds "$EMBEDS" \
-              '{"username": $username, "avatar_url": $avatar, "embeds": $embeds}')
+              '{"username": $username, "avatar_url": $avatar, "embeds": $embeds}' > "$TMPFILE"
             RESPONSE=$(curl -s \
                             -H "Content-Type: application/json" \
-                            -d "$POST_PAYLOAD" \
+                            -d "@$TMPFILE" \
                             "$DISCORD_WEBHOOK_URL?wait=true")
             MSG_ID=$(echo "$RESPONSE" | jq -r '.id // empty')
 
             if [ -z "$MSG_ID" ]; then
               echo "Warning: could not get message ID from Discord response: $RESPONSE"
+              rm "$TMPFILE"
               exit 0
             fi
 
@@ -110,3 +112,5 @@ jobs:
             git commit -m "chore: track Discord message ID for v$VERSION [skip ci]"
             git push
           fi
+
+          rm -f "$TMPFILE"
