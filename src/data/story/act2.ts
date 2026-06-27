@@ -1,0 +1,245 @@
+import type { Scene } from '../../types/game.types';
+
+export const act2Scenes: Scene[] = [
+  {
+    id: 'scene_2_1',
+    type: 'puzzle',
+    background: 'sky_city_interior',
+    ambienceOverride: 'sky_city',
+    dialogue: [
+      { speaker: 'narrator', textKey: 'scene_2_1_line_0' },
+      { speaker: 'kai', textKey: 'scene_2_1_line_1', expression: 'determined', characterPosition: 'left' },
+      { speaker: 'narrator', textKey: 'scene_2_1_line_2' },
+      { speaker: 'narrator', textKey: 'scene_2_1_line_3' },
+    ],
+    puzzle: {
+      type: 'investigation_board',
+      maxHints: 3,
+      hintCost: { wisdom: -2 },
+      onSuccess: { statChanges: { wisdom: 5 }, flagsSet: ['investigation_solved'] },
+    },
+    nextSceneId: 'scene_2_2',
+  },
+  {
+    id: 'scene_2_2',
+    type: 'combat',
+    background: 'underground_arena',
+    ambienceOverride: 'underground',
+    dialogue: [
+      { speaker: 'narrator', textKey: 'scene_2_2_line_0' },
+      { speaker: 'narrator', textKey: 'scene_2_2_line_1' },
+      { speaker: 'ryu', textKey: 'scene_2_2_line_2', expression: 'determined', characterPosition: 'right' },
+      { speaker: 'kai', textKey: 'scene_2_2_line_3', expression: 'neutral', characterPosition: 'left' },
+      { speaker: 'ryu', textKey: 'scene_2_2_line_4', expression: 'battle_stance', characterPosition: 'right' },
+    ],
+    combat: {
+      enemies: [
+        {
+          id: 'ryu_boss',
+          nameKey: 'enemy_void_wraith_name',
+          hp: 200,
+          maxHp: 200,
+          attack: 20,
+          defense: 12,
+          speed: 6,
+          attackPatterns: [
+            { id: 'punch', damage: 20, type: 'normal', warningTurns: 0 },
+            { id: 'ground_slam', damage: 35, type: 'all_party', warningTurns: 1 },
+          ],
+        },
+      ],
+      backgroundId: 'underground_arena',
+      phases: [
+        {
+          triggerHpPercent: 50,
+          dialogueKey: 'scene_2_2_line_5',
+          specialEvent: 'ryu_save',
+        },
+      ],
+      onVictory: {
+        statChanges: { ryu_bond: 15 },
+        flagsSet: ['ryu_joined'],
+      },
+      onDefeat: { retry: true },
+    },
+    nextSceneId: 'scene_2_2_after',
+  },
+  {
+    id: 'scene_2_2_after',
+    type: 'dialogue',
+    background: 'underground_arena',
+    dialogue: [
+      { speaker: 'narrator', textKey: 'scene_2_2_line_5' },
+      { speaker: 'kai', textKey: 'scene_2_2_line_6', expression: 'determined', characterPosition: 'left' },
+      { speaker: 'ryu', textKey: 'scene_2_2_line_7', expression: 'happy', characterPosition: 'right' },
+    ],
+    choices: [
+      {
+        id: 'tell_ryu',
+        textKey: 'scene_2_2_choice_0',
+        consequences: { statChanges: { ryu_bond: 10 }, flagsSet: ['told_ryu_blades'] },
+        nextSceneId: 'scene_2_3',
+      },
+      {
+        id: 'dont_tell_ryu',
+        textKey: 'scene_2_2_choice_1',
+        consequences: { statChanges: { ryu_bond: 3 } },
+        nextSceneId: 'scene_2_3',
+      },
+    ],
+  },
+  {
+    id: 'scene_2_3',
+    type: 'dialogue',
+    background: 'city_library',
+    ambienceOverride: 'sky_city',
+    dialogue: [
+      { speaker: 'narrator', textKey: 'scene_2_3_line_0' },
+      { speaker: 'luna', textKey: 'scene_2_3_line_1', expression: 'sad', characterPosition: 'right' },
+      { speaker: 'kai', textKey: 'scene_2_3_line_2', expression: 'neutral', characterPosition: 'left' },
+      { speaker: 'luna', textKey: 'scene_2_3_line_3', expression: 'sad', characterPosition: 'right' },
+      { speaker: 'narrator', textKey: 'scene_2_3_line_4' },
+      { speaker: 'luna', textKey: 'scene_2_3_line_5', expression: 'sad', characterPosition: 'right' },
+      { speaker: 'luna', textKey: 'scene_2_3_line_6', expression: 'sad', characterPosition: 'right' },
+    ],
+    choices: [
+      {
+        id: 'support_luna',
+        textKey: 'scene_2_3_choice_0',
+        consequences: { statChanges: { luna_bond: 15 }, flagsSet: ['supported_luna_identity'] },
+        nextSceneId: 'scene_2_3_after_a',
+      },
+      {
+        id: 'doubt_luna',
+        textKey: 'scene_2_3_choice_1',
+        consequences: { statChanges: { luna_bond: -10 } },
+        nextSceneId: 'scene_2_3_after_b',
+      },
+      {
+        id: 'betray_luna',
+        textKey: 'scene_2_3_choice_2',
+        consequences: { statChanges: { luna_bond: -20 }, flagsSet: ['betrayed_luna'] },
+        nextSceneId: 'scene_2_3_after_c',
+      },
+    ],
+  },
+  {
+    id: 'scene_2_3_after_a',
+    type: 'dialogue',
+    background: 'city_library',
+    dialogue: [
+      { speaker: 'luna', textKey: 'scene_2_3_line_7', expression: 'sad', characterPosition: 'right' },
+      { speaker: 'kai', textKey: 'scene_2_3_line_8', expression: 'determined', characterPosition: 'left' },
+      { speaker: 'luna', textKey: 'scene_2_3_line_9', expression: 'neutral', characterPosition: 'right' },
+    ],
+    nextSceneId: 'scene_2_4',
+  },
+  {
+    id: 'scene_2_3_after_b',
+    type: 'dialogue',
+    background: 'city_library',
+    dialogue: [
+      { speaker: 'luna', textKey: 'scene_2_3_line_7', expression: 'sad', characterPosition: 'right' },
+      { speaker: 'narrator', textKey: 'scene_2_3_line_8' },
+    ],
+    nextSceneId: 'scene_2_4',
+  },
+  {
+    id: 'scene_2_3_after_c',
+    type: 'dialogue',
+    background: 'city_library',
+    dialogue: [
+      { speaker: 'luna', textKey: 'scene_2_3_line_7', expression: 'sad', characterPosition: 'right' },
+    ],
+    onEnter: { flagsSet: ['council_knows_luna'] },
+    nextSceneId: 'scene_2_4',
+  },
+  {
+    id: 'scene_2_4',
+    type: 'minigame',
+    background: 'forest_shrine',
+    ambienceOverride: 'forest_night',
+    dialogue: [
+      { speaker: 'narrator', textKey: 'scene_2_4_line_0' },
+      { speaker: 'narrator', textKey: 'scene_2_4_line_1' },
+      { speaker: 'kai', textKey: 'scene_2_4_line_2', expression: 'determined', characterPosition: 'left' },
+      { speaker: 'suki', textKey: 'scene_2_4_line_3', expression: 'determined', characterPosition: 'right' },
+    ],
+    minigame: {
+      type: 'rhythm_ritual',
+      lives: 3,
+      onSuccess: { flagsSet: ['shrine_cleansed', 'suki_joined'] },
+      onFail: {},
+    },
+    nextSceneId: 'scene_2_4_after',
+  },
+  {
+    id: 'scene_2_4_after',
+    type: 'dialogue',
+    background: 'forest_shrine',
+    dialogue: [
+      { speaker: 'narrator', textKey: 'scene_2_4_line_4' },
+      { speaker: 'suki', textKey: 'scene_2_4_line_5', expression: 'neutral', characterPosition: 'right' },
+      { speaker: 'suki', textKey: 'scene_2_4_line_6', expression: 'sad', characterPosition: 'right' },
+    ],
+    choices: [
+      {
+        id: 'accept_suki',
+        textKey: 'scene_2_4_choice_0',
+        consequences: { statChanges: { suki_bond: 15 }, flagsSet: ['accepted_suki_taint'] },
+        nextSceneId: 'scene_2_5',
+      },
+      {
+        id: 'reproach_suki',
+        textKey: 'scene_2_4_choice_1',
+        consequences: { statChanges: { suki_bond: 5 } },
+        nextSceneId: 'scene_2_5',
+      },
+    ],
+  },
+  {
+    id: 'scene_2_5',
+    type: 'minigame',
+    background: 'void_gate',
+    ambienceOverride: 'void_dark',
+    dialogue: [
+      { speaker: 'narrator', textKey: 'scene_2_5_line_0' },
+      { speaker: 'kai', textKey: 'scene_2_5_line_1', expression: 'determined', characterPosition: 'left' },
+      { speaker: 'kai', textKey: 'scene_2_5_line_2', expression: 'angry', characterPosition: 'left' },
+      { speaker: 'ryu', textKey: 'scene_2_5_line_3', expression: 'battle_stance', characterPosition: 'right' },
+    ],
+    minigame: {
+      type: 'squad_tactics',
+      onSuccess: { flagsSet: ['void_gate_destroyed'] },
+      onFail: {},
+    },
+    nextSceneId: 'scene_2_5_after',
+  },
+  {
+    id: 'scene_2_5_after',
+    type: 'dialogue',
+    background: 'void_gate',
+    dialogue: [
+      { speaker: 'narrator', textKey: 'scene_2_5_line_6' },
+    ],
+    nextSceneId: 'scene_2_6',
+  },
+  {
+    id: 'scene_2_6',
+    type: 'dialogue',
+    background: 'void_citadel_exterior',
+    ambienceOverride: 'void_dark',
+    dialogue: [
+      { speaker: 'narrator', textKey: 'scene_2_6_line_0' },
+      { speaker: 'malachar', textKey: 'scene_2_6_line_1', expression: 'neutral', characterPosition: 'right' },
+      { speaker: 'luna', textKey: 'scene_2_6_line_2', expression: 'angry', characterPosition: 'left' },
+      { speaker: 'malachar', textKey: 'scene_2_6_line_3', expression: 'neutral', characterPosition: 'right' },
+      { speaker: 'kai', textKey: 'scene_2_6_line_4', expression: 'determined', characterPosition: 'left' },
+      { speaker: 'malachar', textKey: 'scene_2_6_line_5', expression: 'neutral', characterPosition: 'right' },
+      { speaker: 'kai', textKey: 'scene_2_6_line_6', expression: 'angry', characterPosition: 'left' },
+      { speaker: 'malachar', textKey: 'scene_2_6_line_7', expression: 'neutral', characterPosition: 'right' },
+      { speaker: 'narrator', textKey: 'scene_2_6_line_8' },
+    ],
+    nextSceneId: 'scene_3_1',
+  },
+];

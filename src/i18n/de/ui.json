@@ -1,0 +1,125 @@
+{
+  "title": "Chroniken der Himmelsklinge",
+  "menu": {
+    "newGame": "Neues Spiel",
+    "continue": "Fortsetzen",
+    "settings": "Einstellungen",
+    "newGamePlus": "Neues Spiel+"
+  },
+  "dialogue": {
+    "skip": "Überspringen",
+    "auto": "Auto",
+    "history": "Verlauf",
+    "close": "Schließen"
+  },
+  "combat": {
+    "attack": "Angriff",
+    "defend": "Verteidigen",
+    "skill": "Fähigkeit",
+    "item": "Gegenstand",
+    "flee": "Fliehen",
+    "victory": "Sieg!",
+    "defeat": "Besiegt...",
+    "retry": "Erneut versuchen",
+    "perfect": "Perfekt!",
+    "good": "Gut",
+    "miss": "Verfehlt",
+    "easyMode": "Einfachen Modus aktivieren"
+  },
+  "stats": {
+    "courage": "Mut",
+    "wisdom": "Weisheit",
+    "empathy": "Empathie",
+    "strength": "Stärke",
+    "spirit": "Geist",
+    "lunaBond": "Lunas Bindung",
+    "ryuBond": "Ryus Bindung",
+    "sukiBond": "Sukis Bindung"
+  },
+  "puzzle": {
+    "hint": "Hinweis",
+    "hintsRemaining": "{{count}} Hinweise übrig",
+    "solved": "Rätsel gelöst!",
+    "failed": "Erneut versuchen",
+    "timeRemaining": "{{time}}s verbleibend"
+  },
+  "minigame": {
+    "livesRemaining": "{{count}} Leben",
+    "success": "Erfolg!",
+    "failed": "Gescheitert — erneut versuchen",
+    "easyMode": "Zum einfachen Modus wechseln"
+  },
+  "save": {
+    "save": "Spiel speichern",
+    "load": "Spiel laden",
+    "autosave": "Automatisch gespeichert",
+    "slot": "Slot {{number}}",
+    "empty": "Leer",
+    "confirmOverwrite": "Diesen Speicherstand überschreiben?",
+    "yes": "Ja",
+    "no": "Nein"
+  },
+  "inventory": {
+    "title": "Inventar",
+    "healthPotion": "Heiltrank",
+    "spiritPotion": "Geisttrank",
+    "use": "Verwenden",
+    "empty": "Dein Inventar ist leer"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "language": "Sprache",
+    "textSpeed": "Textgeschwindigkeit",
+    "slow": "Langsam",
+    "normal": "Normal",
+    "fast": "Schnell",
+    "instant": "Sofort",
+    "fontSize": "Schriftgröße",
+    "small": "Klein",
+    "medium": "Mittel",
+    "large": "Groß",
+    "highContrast": "Hoher Kontrast",
+    "sound": "Ton",
+    "apiKeys": "API-Schlüssel",
+    "close": "Schließen"
+  },
+  "onboarding": {
+    "title": "Verbessere dein Abenteuer",
+    "subtitle": "KI-gestützte Story-Variationen und dynamische Inhalte erfordern API-Schlüssel. Alle Schlüssel werden nur lokal auf deinem Gerät gespeichert.",
+    "anthropicKey": "Anthropic API-Schlüssel",
+    "imageProvider": "Bild-KI-Anbieter",
+    "imageKey": "Bild-API-Schlüssel",
+    "test": "Testen",
+    "testOk": "Verbunden",
+    "testFail": "Ungültiger Schlüssel",
+    "startAdventure": "Abenteuer starten",
+    "skip": "Mit vorgeneriertem Inhalt spielen →"
+  },
+  "install": {
+    "prompt": "Nimm das Abenteuer überall hin mit — installiere die App!",
+    "accept": "Installieren",
+    "dismiss": "Nicht jetzt"
+  },
+  "endings": {
+    "celestialHarmony": "Himmlische Harmonie",
+    "bladeOfJustice": "Klinge der Gerechtigkeit",
+    "theLastBlade": "Die letzte Klinge",
+    "newGamePlus": "Neues Spiel+ beginnen",
+    "mainMenu": "Zum Hauptmenü"
+  },
+  "language": {
+    "selectLanguage": "Sprache wählen",
+    "english": "English",
+    "german": "Deutsch"
+  },
+  "pause": {
+    "resume": "Fortsetzen",
+    "returnToTitle": "Zum Hauptmenü",
+    "confirmReturn": "Dein automatischer Speicherstand ist aktuell. Zum Hauptmenü zurückkehren?"
+  },
+  "update": {
+    "available": "Eine neue Version ist verfügbar — jetzt aktualisieren?",
+    "button": "Aktualisieren"
+  },
+  "narrator": "Erzähler"
+}

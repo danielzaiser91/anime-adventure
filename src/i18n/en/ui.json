@@ -1,0 +1,125 @@
+{
+  "title": "Chronicles of the Celestial Blade",
+  "menu": {
+    "newGame": "New Game",
+    "continue": "Continue",
+    "settings": "Settings",
+    "newGamePlus": "New Game+"
+  },
+  "dialogue": {
+    "skip": "Skip",
+    "auto": "Auto",
+    "history": "History",
+    "close": "Close"
+  },
+  "combat": {
+    "attack": "Attack",
+    "defend": "Defend",
+    "skill": "Skill",
+    "item": "Item",
+    "flee": "Flee",
+    "victory": "Victory!",
+    "defeat": "Defeated...",
+    "retry": "Try Again",
+    "perfect": "Perfect!",
+    "good": "Good",
+    "miss": "Miss",
+    "easyMode": "Switch to Easy Mode"
+  },
+  "stats": {
+    "courage": "Courage",
+    "wisdom": "Wisdom",
+    "empathy": "Empathy",
+    "strength": "Strength",
+    "spirit": "Spirit",
+    "lunaBond": "Luna Bond",
+    "ryuBond": "Ryu Bond",
+    "sukiBond": "Suki Bond"
+  },
+  "puzzle": {
+    "hint": "Hint",
+    "hintsRemaining": "{{count}} hints remaining",
+    "solved": "Puzzle Solved!",
+    "failed": "Try Again",
+    "timeRemaining": "{{time}}s remaining"
+  },
+  "minigame": {
+    "livesRemaining": "{{count}} lives",
+    "success": "Success!",
+    "failed": "Failed — Try Again",
+    "easyMode": "Switch to Easy Mode"
+  },
+  "save": {
+    "save": "Save Game",
+    "load": "Load Game",
+    "autosave": "Auto Save",
+    "slot": "Slot {{number}}",
+    "empty": "Empty",
+    "confirmOverwrite": "Overwrite this save?",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "inventory": {
+    "title": "Inventory",
+    "healthPotion": "Health Potion",
+    "spiritPotion": "Spirit Potion",
+    "use": "Use",
+    "empty": "Your inventory is empty"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "textSpeed": "Text Speed",
+    "slow": "Slow",
+    "normal": "Normal",
+    "fast": "Fast",
+    "instant": "Instant",
+    "fontSize": "Font Size",
+    "small": "Small",
+    "medium": "Medium",
+    "large": "Large",
+    "highContrast": "High Contrast",
+    "sound": "Sound",
+    "apiKeys": "API Keys",
+    "close": "Close"
+  },
+  "onboarding": {
+    "title": "Enhance Your Adventure",
+    "subtitle": "AI-powered story variations and dynamic content require API keys. All keys are stored locally on your device only.",
+    "anthropicKey": "Anthropic API Key",
+    "imageProvider": "Image AI Provider",
+    "imageKey": "Image API Key",
+    "test": "Test",
+    "testOk": "Connected",
+    "testFail": "Invalid key",
+    "startAdventure": "Start Adventure",
+    "skip": "Play with pre-generated content →"
+  },
+  "install": {
+    "prompt": "Take the adventure with you — install the app!",
+    "accept": "Install",
+    "dismiss": "Not now"
+  },
+  "endings": {
+    "celestialHarmony": "Celestial Harmony",
+    "bladeOfJustice": "Blade of Justice",
+    "theLastBlade": "The Last Blade",
+    "newGamePlus": "Begin New Game+",
+    "mainMenu": "Return to Main Menu"
+  },
+  "language": {
+    "selectLanguage": "Select Language",
+    "english": "English",
+    "german": "Deutsch"
+  },
+  "pause": {
+    "resume": "Resume",
+    "returnToTitle": "Return to Title",
+    "confirmReturn": "Your auto-save is up to date. Return to title?"
+  },
+  "update": {
+    "available": "A new version is available — update now?",
+    "button": "Update"
+  },
+  "narrator": "Narrator"
+}
