@@ -5,5 +5,6 @@
   "1.0.3": "• Speaker names now render cleanly — no more overlapping letters",
   "1.0.4": "• Enemy names now display correctly (e.g. \"Void Wraith\" instead of raw ID)\n• Combat skill buttons now show proper names in English and German\n• Game correctly restarts after defeat — no more getting stuck\n• Load game popup now shows \"No saves found\" instead of appearing blank\n• Save slots now display the actual scene name instead of an internal key",
   "1.0.5": "• Background image now shows correctly in the opening village scene\n• Combat damage now registers correctly — attacking a defeated enemy no longer prevents hitting the next one",
-  "1.0.6": "• Seal puzzle now loads correctly after talking to Luna — tap the four rune fragments in order to restore the seal\n• All missing scene backgrounds now display (ruined temple, forest shrine, sky city, void gate, and more)"
+  "1.0.6": "• Seal puzzle now loads correctly after talking to Luna — tap the four rune fragments in order to restore the seal\n• All missing scene backgrounds now display (ruined temple, forest shrine, sky city, void gate, and more)",
+  "1.0.7": "✨ All game artwork has been upgraded to AI-generated images — characters, backgrounds and endings are now fully illustrated instead of placeholder graphics"
 }
