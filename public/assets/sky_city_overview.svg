@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1a2a5e" stop-opacity="0.8"/>
+        <stop offset="100%" stop-color="#0d0618"/>
+      </linearGradient></defs>
+  <rect width="1920" height="1080" fill="url(#g)"/>
+  
+      <ellipse cx="960" cy="216" rx="576" ry="108" fill="#e8d4a0" opacity="0.5"/>
+      <rect x="192" y="540" width="384" height="378" rx="4" fill="#c0a860" opacity="0.6"/>
+      <rect x="768" y="432" width="480" height="486" rx="4" fill="#c0a860" opacity="0.5"/>
+      <rect x="1382.3999999999999" y="594" width="345.59999999999997" height="324" rx="3" fill="#c0a860" opacity="0.55"/>
+    
+  <text x="960" y="540" text-anchor="middle" dominant-baseline="middle"
+    font-family="serif" font-size="64" fill="#ffd700" opacity="0.3">SKY CITY OVERVIEW</text>
+</svg>

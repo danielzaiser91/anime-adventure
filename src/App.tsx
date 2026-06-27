@@ -10,9 +10,10 @@ import { UpdatePrompt } from './components/ui/UpdatePrompt';
 import { ErrorBoundary } from './components/layout/ErrorBoundary';
 import { startAutosave, stopAutosave } from './store/gameStore';
 import { useImagePreloader } from './hooks/useImagePreloader';
-import { IMAGE_URLS } from './data/imageUrls';
 
-const CRITICAL_IMAGES = [IMAGE_URLS['logo'], IMAGE_URLS['loading_art']].filter(Boolean) as string[];
+const CRITICAL_IMAGES = ['logo', 'loading_art'].map(
+  (k) => `${import.meta.env.BASE_URL}assets/${k}.svg`
+);
 const ENDING_SCENE_IDS = new Set([
   'scene_ending_celestial_harmony',
   'scene_ending_blade_of_justice',

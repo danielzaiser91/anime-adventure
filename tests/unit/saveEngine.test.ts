@@ -34,6 +34,7 @@ function makeState(overrides?: Partial<GameState>): GameState {
     setLanguage: () => {},
     setPlayerName: () => {},
     setPaused: () => {},
+    setTextSpeed: () => {},
     ...overrides,
   };
 }

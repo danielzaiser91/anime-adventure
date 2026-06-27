@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#3a1a1a" stop-opacity="0.8"/>
+        <stop offset="100%" stop-color="#0d0618"/>
+      </linearGradient></defs>
+  <rect width="1920" height="1080" fill="url(#g)"/>
+  
+      <rect x="0" y="648" width="1920" height="432" fill="#1a0a0a" opacity="0.5"/>
+      <polygon points="0,648 288,378 576,648" fill="#2a1515" opacity="0.8"/>
+      <polygon points="960,648 1248,324 1536,648" fill="#2a1515" opacity="0.8"/>
+      <circle cx="960" cy="540" r="288" fill="#8b0000" opacity="0.2"/>
+    
+  <text x="960" y="540" text-anchor="middle" dominant-baseline="middle"
+    font-family="serif" font-size="64" fill="#ffd700" opacity="0.3">UNDERGROUND ARENA DUSK</text>
+</svg>

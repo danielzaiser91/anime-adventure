@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#2d4a1e" stop-opacity="0.8"/>
+        <stop offset="100%" stop-color="#0d0618"/>
+      </linearGradient></defs>
+  <rect width="1920" height="1080" fill="url(#g)"/>
+  
+  <text x="960" y="540" text-anchor="middle" dominant-baseline="middle"
+    font-family="serif" font-size="64" fill="#ffd700" opacity="0.3">VILLAGE DAWN</text>
+</svg>

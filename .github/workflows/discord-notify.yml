@@ -1,0 +1,84 @@
+name: Discord News Notification
+
+on:
+  workflow_run:
+    workflows: ["Deploy to GitHub Pages"]
+    types:
+      - completed
+  release:
+    types:
+      - published
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    if: >
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success') ||
+      github.event_name == 'release'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Get version and changelog
+        id: meta
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+          # Get last commit message for changelog
+          COMMIT_MSG=$(git log -1 --pretty=format:"%s" 2>/dev/null || echo "New update deployed")
+          echo "commit_msg=$COMMIT_MSG" >> $GITHUB_OUTPUT
+
+          # Determine event type
+          if [ "${{ github.event_name }}" = "release" ]; then
+            echo "event_type=release" >> $GITHUB_OUTPUT
+            echo "title=🎮 New Release: v$VERSION" >> $GITHUB_OUTPUT
+          else
+            echo "event_type=deploy" >> $GITHUB_OUTPUT
+            echo "title=🚀 New Update Deployed!" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Post to Discord
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          VERSION="${{ steps.meta.outputs.version }}"
+          TITLE="${{ steps.meta.outputs.title }}"
+          COMMIT="${{ steps.meta.outputs.commit_msg }}"
+          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+          PAYLOAD=$(cat <<EOF
+          {
+            "username": "Celestial Blade News",
+            "avatar_url": "https://danielzaiser91.github.io/anime-adventure/assets/logo.svg",
+            "embeds": [{
+              "title": "$TITLE",
+              "description": "**Chronicles of the Celestial Blade** has been updated!\n\n> $COMMIT",
+              "url": "https://danielzaiser91.github.io/anime-adventure/",
+              "color": 4286489,
+              "fields": [
+                {
+                  "name": "🗡️ Version",
+                  "value": "v$VERSION",
+                  "inline": true
+                },
+                {
+                  "name": "🌐 Play Now",
+                  "value": "[Open Game](https://danielzaiser91.github.io/anime-adventure/)",
+                  "inline": true
+                }
+              ],
+              "footer": {
+                "text": "Chronicles of the Celestial Blade"
+              },
+              "timestamp": "$TIMESTAMP"
+            }]
+          }
+          EOF
+          )
+
+          curl -s -H "Content-Type: application/json" \
+               -d "$PAYLOAD" \
+               "$DISCORD_WEBHOOK_URL"

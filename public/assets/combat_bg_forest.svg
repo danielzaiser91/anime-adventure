@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1a3a1a"/>
+        <stop offset="60%" stop-color="#0d0618"/>
+        <stop offset="100%" stop-color="#030208"/>
+      </linearGradient></defs>
+  <rect width="1920" height="1080" fill="url(#g)"/>
+  
+      <circle cx="384" cy="324" r="2" fill="#7b2d8b" opacity="0.6"/>
+      <circle cx="1344" cy="432" r="3" fill="#4169e1" opacity="0.5"/>
+      <circle cx="960" cy="648" r="1.5" fill="#ffd700" opacity="0.4"/>
+      <circle cx="1632" cy="216" r="2.5" fill="#7b2d8b" opacity="0.5"/>
+      <rect x="192" y="756" width="1536" height="2" fill="#4169e1" opacity="0.2"/>
+      <rect x="576" y="972" width="768" height="2" fill="#7b2d8b" opacity="0.15"/>
+    
+  <text x="960" y="540" text-anchor="middle" dominant-baseline="middle"
+    font-family="serif" font-size="64" fill="#ffd700" opacity="0.3">COMBAT BG FOREST</text>
+</svg>

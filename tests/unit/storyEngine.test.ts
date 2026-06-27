@@ -20,10 +20,13 @@ describe('storyEngine', () => {
 
   it('no story dead ends — every non-ending scene has a path forward', () => {
     const scenes = getAllScenes();
-    const endingIds = new Set(['scene_ending_celestial_harmony', 'scene_ending_blade_of_justice', 'scene_ending_sacrifice']);
+    // scene_ending_check has no nextSceneId by design — ending is determined dynamically
+    const dynamicNavIds = new Set([
+      'scene_ending_celestial_harmony', 'scene_ending_blade_of_justice',
+      'scene_ending_sacrifice', 'scene_ending_check',
+    ]);
     for (const scene of scenes) {
-      if (endingIds.has(scene.id)) continue;
-      if (scene.id === 'scene_ending_check') continue;
+      if (dynamicNavIds.has(scene.id)) continue;
       const hasForward = !!scene.nextSceneId || (scene.choices && scene.choices.length > 0)
         || !!scene.puzzle || !!scene.minigame || !!scene.combat;
       expect(hasForward, `Scene ${scene.id} has no path forward`).toBe(true);

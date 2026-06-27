@@ -264,7 +264,7 @@ export const act3Scenes: Scene[] = [
     type: 'cinematic',
     background: 'celestial_ending',
     dialogue: [],
-    nextSceneId: 'scene_ending_celestial_harmony',
+    // No nextSceneId — SceneController auto-navigates via determineEnding()
   },
   {
     id: 'scene_ending_celestial_harmony',

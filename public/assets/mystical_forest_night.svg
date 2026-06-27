@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1a3a1a" stop-opacity="0.8"/>
+        <stop offset="100%" stop-color="#0d0618"/>
+      </linearGradient></defs>
+  <rect width="1920" height="1080" fill="url(#g)"/>
+  
+      <polygon points="160,216 0,756 320,756"
+        fill="#1e3a12" opacity="0.8"/>
+      <polygon points="160,108 64,540 256,540"
+        fill="#2a5a1a" opacity="0.7"/>
+    
+      <polygon points="480,216 320,756 640,756"
+        fill="#1e3a12" opacity="0.8"/>
+      <polygon points="480,108 384,540 576,540"
+        fill="#2a5a1a" opacity="0.7"/>
+    
+      <polygon points="800,216 640,756 960,756"
+        fill="#1e3a12" opacity="0.8"/>
+      <polygon points="800,108 704,540 896,540"
+        fill="#2a5a1a" opacity="0.7"/>
+    
+      <polygon points="1120,216 960,756 1280,756"
+        fill="#1e3a12" opacity="0.8"/>
+      <polygon points="1120,108 1024,540 1216,540"
+        fill="#2a5a1a" opacity="0.7"/>
+    
+      <polygon points="1440,216 1280,756 1600,756"
+        fill="#1e3a12" opacity="0.8"/>
+      <polygon points="1440,108 1344,540 1536,540"
+        fill="#2a5a1a" opacity="0.7"/>
+    
+      <polygon points="1760,216 1600,756 1920,756"
+        fill="#1e3a12" opacity="0.8"/>
+      <polygon points="1760,108 1664,540 1856,540"
+        fill="#2a5a1a" opacity="0.7"/>
+    <ellipse cx="960" cy="162" rx="288" ry="86.4" fill="#ffdb70" opacity="0.6"/>
+  <text x="960" y="540" text-anchor="middle" dominant-baseline="middle"
+    font-family="serif" font-size="64" fill="#ffd700" opacity="0.3">MYSTICAL FOREST NIGHT</text>
+</svg>

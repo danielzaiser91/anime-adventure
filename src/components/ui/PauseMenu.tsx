@@ -10,7 +10,7 @@ interface Props {
 
 export function PauseMenu({ onClose }: Props) {
   const { t } = useTranslation();
-  const { saveGame, setPaused, textSpeed, fontSize, highContrast, soundEnabled, language, setLanguage } = useGameStore();
+  const { saveGame, setPaused, textSpeed, language, setLanguage, setTextSpeed } = useGameStore();
   const store = useGameStore();
   const [saved, setSaved] = useState<number | null>(null);
   const [showConfirmTitle, setShowConfirmTitle] = useState(false);
@@ -35,7 +35,7 @@ export function PauseMenu({ onClose }: Props) {
               {(['slow', 'normal', 'fast', 'instant'] as const).map((speed) => (
                 <button
                   key={speed}
-                  onClick={() => store.textSpeed !== speed && useGameStore.setState({ textSpeed: speed })}
+                  onClick={() => setTextSpeed(speed)}
                   className={`px-2 py-1 rounded text-xs font-rajdhani ${store.textSpeed === speed ? 'bg-spirit-blue text-white' : 'bg-void text-gray-400 border border-gray-600'}`}
                 >
                   {speed}

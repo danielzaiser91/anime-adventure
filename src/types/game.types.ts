@@ -235,6 +235,7 @@ export interface GameState {
   setLanguage: (lang: 'en' | 'de') => void;
   setPlayerName: (name: string) => void;
   setPaused: (paused: boolean) => void;
+  setTextSpeed: (speed: TextSpeed) => void;
 }
 
 export const DEFAULT_STATS: GameStats = {

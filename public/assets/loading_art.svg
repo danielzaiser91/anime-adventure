@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#0d0618"/>
+  <circle cx="400" cy="270" r="180" fill="none" stroke="#4169e1" stroke-width="3" opacity="0.5"/>
+  <circle cx="400" cy="270" r="108" fill="none" stroke="#ffd700" stroke-width="2" opacity="0.6"/>
+  <text x="400" y="270" text-anchor="middle" dominant-baseline="middle"
+    font-family="Georgia, serif" font-size="90" fill="#ffd700">⚔</text>
+  <text x="400" y="480" text-anchor="middle" font-family="Georgia, serif"
+    font-size="36" fill="#7b2d8b">Chronicles of the Celestial Blade</text>
+</svg>

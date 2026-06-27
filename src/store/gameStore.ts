@@ -129,6 +129,7 @@ export const useGameStore = create<GameState>()(
       setPlayerName: (name: string) => set({ playerName: name }),
       setPaused: (paused: boolean) =>
         set({ currentPhase: paused ? 'paused' : 'playing' }),
+      setTextSpeed: (speed) => set({ textSpeed: speed }),
     }),
     {
       name: 'CAB_GAME_STATE',
