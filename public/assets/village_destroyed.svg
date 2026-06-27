@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a0a00"/>
+      <stop offset="40%" stop-color="#4a1500"/>
+      <stop offset="100%" stop-color="#0d0608"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="30%" cy="60%" r="25%">
+      <stop offset="0%" stop-color="#ff4400" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ff4400" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="70%" cy="65%" r="20%">
+      <stop offset="0%" stop-color="#ff6600" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ff6600" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <rect width="1920" height="1080" fill="url(#glow1)"/>
+  <rect width="1920" height="1080" fill="url(#glow2)"/>
+  <!-- Ground -->
+  <rect x="0" y="750" width="1920" height="330" fill="#1a0800" opacity="0.9"/>
+  <!-- Ruined buildings -->
+  <rect x="200" y="500" width="180" height="280" fill="#2a1200" opacity="0.9"/>
+  <rect x="200" y="480" width="180" height="30" fill="#1a0a00"/>
+  <rect x="240" y="520" width="40" height="50" fill="#ff3300" opacity="0.4"/>
+  <rect x="550" y="420" width="220" height="360" fill="#2a1200" opacity="0.85"/>
+  <rect x="600" y="440" width="50" height="80" fill="#ff4400" opacity="0.5"/>
+  <rect x="900" y="480" width="160" height="300" fill="#1e0e00" opacity="0.9"/>
+  <rect x="1200" y="440" width="200" height="340" fill="#2a1200" opacity="0.85"/>
+  <rect x="1250" y="460" width="45" height="70" fill="#ff3300" opacity="0.45"/>
+  <rect x="1500" y="500" width="150" height="280" fill="#1a0a00" opacity="0.9"/>
+  <!-- Flames -->
+  <ellipse cx="380" cy="500" rx="60" ry="80" fill="#ff4400" opacity="0.7"/>
+  <ellipse cx="380" cy="490" rx="35" ry="55" fill="#ff8800" opacity="0.6"/>
+  <ellipse cx="380" cy="485" rx="20" ry="35" fill="#ffcc00" opacity="0.5"/>
+  <ellipse cx="680" cy="420" rx="70" ry="90" fill="#ff4400" opacity="0.65"/>
+  <ellipse cx="680" cy="408" rx="40" ry="60" fill="#ff8800" opacity="0.55"/>
+  <ellipse cx="1340" cy="440" rx="55" ry="75" fill="#ff5500" opacity="0.6"/>
+  <ellipse cx="1340" cy="430" rx="30" ry="50" fill="#ff9900" opacity="0.5"/>
+  <!-- Smoke -->
+  <ellipse cx="380" cy="380" rx="90" ry="40" fill="#2a2a2a" opacity="0.5"/>
+  <ellipse cx="450" cy="300" rx="70" ry="30" fill="#222" opacity="0.4"/>
+  <ellipse cx="680" cy="280" rx="100" ry="45" fill="#2a2a2a" opacity="0.45"/>
+  <ellipse cx="750" cy="180" rx="80" ry="35" fill="#1a1a1a" opacity="0.35"/>
+  <!-- Debris on ground -->
+  <rect x="100" y="740" width="120" height="15" fill="#3a1500" opacity="0.8" transform="rotate(-8 100 740)"/>
+  <rect x="800" y="745" width="90" height="12" fill="#3a1500" opacity="0.7" transform="rotate(5 800 745)"/>
+  <rect x="1400" y="738" width="110" height="14" fill="#3a1500" opacity="0.75" transform="rotate(-4 1400 738)"/>
+</svg>

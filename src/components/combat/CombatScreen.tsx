@@ -130,17 +130,20 @@ export function CombatScreen({ encounter, enemies, playerStats, onVictory, onDef
     return () => clearTimeout(timer);
   }, [state.phase, state.turn, enemies]);
 
+  // Always target the first enemy still alive
+  const activeEnemyIndex = state.enemyHps.findIndex((hp) => hp > 0);
+
   const attackTimerRef = useRef<number>(0);
 
   function startAttack() {
     attackTimerRef.current = performance.now();
   }
 
-  function releaseAttack(enemyIndex: number) {
-    if (state.phase !== 'player_turn') return;
+  function releaseAttack() {
+    if (state.phase !== 'player_turn' || activeEnemyIndex === -1) return;
     const elapsed = performance.now() - attackTimerRef.current;
     const timing = getTimingResult(elapsed, 300);
-    dispatch({ type: 'ATTACK_TIMING', timing, enemyIndex });
+    dispatch({ type: 'ATTACK_TIMING', timing, enemyIndex: activeEnemyIndex });
   }
 
   const skills = CHARACTER_SKILLS['kai'] ?? [];
@@ -197,9 +200,9 @@ export function CombatScreen({ encounter, enemies, playerStats, onVictory, onDef
             <div className="flex gap-2 flex-wrap mt-3">
               <button
                 onMouseDown={startAttack}
-                onMouseUp={() => releaseAttack(0)}
+                onMouseUp={releaseAttack}
                 onTouchStart={startAttack}
-                onTouchEnd={() => releaseAttack(0)}
+                onTouchEnd={releaseAttack}
                 className="px-5 py-3 bg-celestial-gold text-void font-rajdhani rounded hover:bg-yellow-400 active:scale-95 transition-all select-none"
               >
                 {t('combat.attack')}
@@ -208,7 +211,7 @@ export function CombatScreen({ encounter, enemies, playerStats, onVictory, onDef
               {skills.map((skill) => (
                 <button
                   key={skill.id}
-                  onClick={() => dispatch({ type: 'USE_SKILL', skill, enemyIndex: 0 })}
+                  onClick={() => dispatch({ type: 'USE_SKILL', skill, enemyIndex: activeEnemyIndex })}
                   className="px-4 py-3 bg-void-purple text-white font-rajdhani rounded hover:bg-purple-700 transition-colors text-sm"
                 >
                   {t(`skills.${skill.id}`, { defaultValue: skill.id })}

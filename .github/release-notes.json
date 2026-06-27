@@ -3,5 +3,6 @@
   "1.0.1": "• Improved game stability and performance\n• Various fixes to dialogue flow and scene transitions",
   "1.0.2": "• Your name now appears in dialogues instead of always showing \"Kai\"\n• Lore keywords (Hanamura, Master Soren, The Void…) are highlighted — hover or tap for a short explanation\n• Title screen redesigned with animated wisps, glowing title and a sword divider",
   "1.0.3": "• Speaker names now render cleanly — no more overlapping letters",
-  "1.0.4": "• Enemy names now display correctly (e.g. \"Void Wraith\" instead of raw ID)\n• Combat skill buttons now show proper names in English and German\n• Game correctly restarts after defeat — no more getting stuck\n• Load game popup now shows \"No saves found\" instead of appearing blank\n• Save slots now display the actual scene name instead of an internal key"
+  "1.0.4": "• Enemy names now display correctly (e.g. \"Void Wraith\" instead of raw ID)\n• Combat skill buttons now show proper names in English and German\n• Game correctly restarts after defeat — no more getting stuck\n• Load game popup now shows \"No saves found\" instead of appearing blank\n• Save slots now display the actual scene name instead of an internal key",
+  "1.0.5": "• Background image now shows correctly in the opening village scene\n• Combat damage now registers correctly — attacking a defeated enemy no longer prevents hitting the next one"
 }
