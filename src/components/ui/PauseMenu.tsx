@@ -9,7 +9,7 @@ interface Props {
 }
 
 export function PauseMenu({ onClose }: Props) {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['ui', 'story']);
   const { saveGame, setPaused, textSpeed, language, setLanguage, setTextSpeed } = useGameStore();
   const [saved, setSaved] = useState<number | null>(null);
   const [showConfirmTitle, setShowConfirmTitle] = useState(false);
@@ -63,7 +63,7 @@ export function PauseMenu({ onClose }: Props) {
                   {saved === slot
                     ? <span className="text-jade">✓ {t('save.saved')}</span>
                     : info
-                      ? `${t('save.slot', { number: slot + 1 })}: ${info.sceneNameKey}`
+                      ? `${t('save.slot', { number: slot + 1 })}: ${t(info.sceneNameKey, { ns: 'story', defaultValue: info.sceneNameKey })}`
                       : `${t('save.slot', { number: slot + 1 })}: ${t('save.empty')}`
                   }
                 </button>

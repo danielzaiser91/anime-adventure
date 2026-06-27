@@ -90,7 +90,7 @@ interface Props {
 }
 
 export function CombatScreen({ encounter, enemies, playerStats, onVictory, onDefeat }: Props) {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['ui', 'story']);
   const bgUrl = useImageUrl(encounter.backgroundId);
 
   const [state, dispatch] = useReducer(combatReducer, {
@@ -155,7 +155,7 @@ export function CombatScreen({ encounter, enemies, playerStats, onVictory, onDef
         <div className="flex gap-4 mb-4">
           {enemies.map((enemy, i) => (
             <div key={enemy.id} className="flex-1">
-              <div className="text-sakura font-cinzel text-sm">{t(enemy.nameKey, { defaultValue: enemy.id })}</div>
+              <div className="text-sakura font-cinzel text-sm">{t(enemy.nameKey, { ns: 'story', defaultValue: enemy.id })}</div>
               <div className="h-2 bg-gray-700 rounded mt-1">
                 <div
                   className="h-full bg-red-500 rounded transition-all duration-300"
@@ -211,7 +211,7 @@ export function CombatScreen({ encounter, enemies, playerStats, onVictory, onDef
                   onClick={() => dispatch({ type: 'USE_SKILL', skill, enemyIndex: 0 })}
                   className="px-4 py-3 bg-void-purple text-white font-rajdhani rounded hover:bg-purple-700 transition-colors text-sm"
                 >
-                  {skill.id}
+                  {t(`skills.${skill.id}`, { defaultValue: skill.id })}
                   {skill.damage && <span className="ml-1 text-celestial-gold text-xs">×{skill.damage}</span>}
                 </button>
               ))}

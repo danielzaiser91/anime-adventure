@@ -37,6 +37,7 @@ export function SceneController() {
   } = store;
 
   const [paused, setPaused] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
   const scene = getScene(currentSceneId);
   const bgUrl = useImageUrl(scene?.background ?? '');
   useScenePreloader(currentSceneId);
@@ -106,8 +107,9 @@ export function SceneController() {
       return;
     }
     if ('retry' in onDefeat) {
-      // Retry: return to this scene but skip dialogue
+      // Retry: return to this scene but skip dialogue, force CombatScreen remount via key
       const skipTo = (scene.dialogue?.length ?? 0);
+      setRetryCount((c) => c + 1);
       useGameStore.setState({ currentSceneId, dialogueIndex: skipTo });
     } else if ('nextSceneId' in onDefeat) {
       goToScene(onDefeat.nextSceneId);
@@ -185,6 +187,7 @@ export function SceneController() {
 
       {showCombat && scene.combat && (
         <CombatScreen
+          key={`${currentSceneId}-${retryCount}`}
           encounter={scene.combat}
           enemies={scene.combat.enemies}
           playerStats={stats}

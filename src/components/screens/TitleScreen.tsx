@@ -126,25 +126,20 @@ export function TitleScreen() {
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-20">
           <div className="bg-deep-night p-6 rounded-lg w-80 border border-spirit-blue shadow-2xl">
             <h3 className="font-cinzel text-celestial-gold text-lg mb-4">{t('save.load')}</h3>
-            {slots.map(({ slot, info }) => (
-              <button
-                key={String(slot)}
-                onClick={() => handleLoadGame(slot)}
-                disabled={!info}
-                className="w-full mb-2 p-3 text-left rounded bg-void border border-deep-night hover:border-spirit-blue disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-              >
-                {info ? (
-                  <div>
-                    <div className="text-white font-rajdhani text-sm">{slot === 'auto' ? 'Auto Save' : `Slot ${Number(slot) + 1}`}</div>
-                    <div className="text-sakura text-xs mt-0.5">{Math.round(info.playtime / 60)}m played</div>
-                  </div>
-                ) : (
-                  <span className="text-gray-600 font-rajdhani text-sm">
-                    {slot === 'auto' ? t('save.autosave') : t('save.slot', { number: Number(slot) + 1 })} — {t('save.empty')}
-                  </span>
-                )}
-              </button>
-            ))}
+            {slots.every(({ info }) => !info) ? (
+              <p className="text-gray-500 font-rajdhani text-sm text-center py-4">{t('save.noSaves')}</p>
+            ) : (
+              slots.filter(({ info }) => info).map(({ slot, info }) => (
+                <button
+                  key={String(slot)}
+                  onClick={() => handleLoadGame(slot)}
+                  className="w-full mb-2 p-3 text-left rounded bg-void border border-gray-600 hover:border-spirit-blue transition-colors"
+                >
+                  <div className="text-white font-rajdhani text-sm">{slot === 'auto' ? t('save.autosave') : t('save.slot', { number: Number(slot) + 1 })}</div>
+                  <div className="text-sakura text-xs mt-0.5">{Math.round((info as NonNullable<typeof info>).playtime / 60)}m played</div>
+                </button>
+              ))
+            )}
             <button
               onClick={() => setShowSlots(false)}
               className="mt-2 w-full text-center text-spirit-blue font-rajdhani text-sm hover:text-white transition-colors"

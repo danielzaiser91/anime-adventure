@@ -88,6 +88,7 @@
     "autosave": "Automatisch gespeichert",
     "slot": "Slot {{number}}",
     "empty": "Leer",
+    "noSaves": "Keine Speicherstände gefunden",
     "saved": "Gespeichert!",
     "confirmOverwrite": "Diesen Speicherstand überschreiben?",
     "yes": "Ja",
@@ -175,5 +176,15 @@
     "available": "Eine neue Version ist verfügbar — jetzt aktualisieren?",
     "button": "Aktualisieren"
   },
-  "narrator": "Erzähler"
+  "narrator": "Erzähler",
+  "skills": {
+    "celestial_strike": "Himmelsschlag",
+    "void_sense": "Leeresinn",
+    "star_burst": "Sternenstoß",
+    "void_shield": "Leereschild",
+    "iron_wall": "Eisenwand",
+    "berserker": "Berserker",
+    "petal_heal": "Blütenheilung",
+    "natures_wrath": "Naturzorn"
+  }
 }

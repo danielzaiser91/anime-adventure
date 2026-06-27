@@ -88,6 +88,7 @@
     "autosave": "Auto Save",
     "slot": "Slot {{number}}",
     "empty": "Empty",
+    "noSaves": "No saves found",
     "saved": "Saved!",
     "confirmOverwrite": "Overwrite this save?",
     "yes": "Yes",
@@ -175,5 +176,15 @@
     "available": "A new version is available — update now?",
     "button": "Update"
   },
-  "narrator": "Narrator"
+  "narrator": "Narrator",
+  "skills": {
+    "celestial_strike": "Celestial Strike",
+    "void_sense": "Void Sense",
+    "star_burst": "Star Burst",
+    "void_shield": "Void Shield",
+    "iron_wall": "Iron Wall",
+    "berserker": "Berserker",
+    "petal_heal": "Petal Heal",
+    "natures_wrath": "Nature's Wrath"
+  }
 }
