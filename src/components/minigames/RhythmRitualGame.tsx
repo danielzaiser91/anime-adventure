@@ -44,8 +44,10 @@ export function RhythmRitualGame({ onComplete }: Props) {
 
   return (
     <div className="fixed inset-0 bg-void flex flex-col items-center justify-center gap-6">
-      <h2 className="font-cinzel text-celestial-gold text-xl">{t('ui.minigame.rhythmRitual', 'Rhythm Ritual')}</h2>
-      <p className="text-spirit-blue font-noto text-sm">Round {round + 1}/{maxRounds} — {phase === 'showing' ? t('ui.minigame.watch', 'Watch...') : t('ui.minigame.repeat', 'Repeat!')}</p>
+      <h2 className="font-cinzel text-celestial-gold text-xl">{t('minigame.rhythmRitual')}</h2>
+      <p className="text-spirit-blue font-noto text-sm">
+        {t('minigame.round', { current: round + 1, total: maxRounds })} — {phase === 'showing' ? t('minigame.watch') : t('minigame.repeat')}
+      </p>
       <div className="grid grid-cols-4 gap-3">
         {Array.from({ length: 8 }, (_, n) => (
           <button

@@ -24,7 +24,7 @@ export function PuzzleScreen({ puzzle, onSuccess, onFail }: Props) {
 
   return (
     <div className="fixed inset-0 bg-void flex items-center justify-center">
-      <div className="text-celestial-gold font-cinzel">{t('ui.puzzle.unsupported', 'Puzzle loading...')}</div>
+      <div className="text-celestial-gold font-cinzel">{t('puzzle.unsupported')}</div>
     </div>
   );
 }
@@ -58,7 +58,7 @@ function VoidCodePuzzle({ puzzle, onSuccess, onFail }: { puzzle: PuzzleConfig; o
 
   return (
     <div className="fixed inset-0 bg-void bg-opacity-95 flex flex-col items-center justify-center p-6 overflow-auto">
-      <h2 className="font-cinzel text-celestial-gold text-xl mb-2">{t('ui.puzzle.voidCode', 'Void Code')}</h2>
+      <h2 className="font-cinzel text-celestial-gold text-xl mb-2">{t('puzzle.voidCode')}</h2>
       <p className="text-spirit-blue font-noto text-sm mb-4 max-w-lg text-center">{encoded}</p>
 
       <div className="grid grid-cols-4 gap-2 max-w-2xl w-full mb-4">
@@ -89,13 +89,13 @@ function VoidCodePuzzle({ puzzle, onSuccess, onFail }: { puzzle: PuzzleConfig; o
           disabled={hintsUsed >= maxHints}
           className="px-4 py-2 border border-sakura text-sakura font-rajdhani rounded hover:bg-sakura hover:text-void transition-colors disabled:opacity-40 text-sm"
         >
-          {t('ui.puzzle.hint', 'Hint')} ({maxHints - hintsUsed})
+          {t('puzzle.hint')} ({maxHints - hintsUsed})
         </button>
         <button
           onClick={handleSubmit}
           className="px-6 py-2 bg-spirit-blue text-white font-rajdhani rounded hover:bg-blue-700 transition-colors"
         >
-          {t('ui.puzzle.submit', 'Submit')}
+          {t('puzzle.submit')}
         </button>
       </div>
     </div>
@@ -140,9 +140,9 @@ function MemorySequencePuzzle({ onSuccess, onFail }: { onSuccess: () => void; on
 
   return (
     <div className="fixed inset-0 bg-void flex flex-col items-center justify-center gap-6">
-      <h2 className="font-cinzel text-celestial-gold text-xl">{t('ui.puzzle.memorySequence', 'Memory Sequence')}</h2>
-      {showing && <p className="text-spirit-blue font-noto text-sm">{t('ui.puzzle.watch', 'Watch the sequence...')}</p>}
-      {!showing && <p className="text-sakura font-noto text-sm">{t('ui.puzzle.repeat', 'Repeat it!')} ({playerSeq.length}/{sequence.length})</p>}
+      <h2 className="font-cinzel text-celestial-gold text-xl">{t('puzzle.memorySequence')}</h2>
+      {showing && <p className="text-spirit-blue font-noto text-sm">{t('puzzle.watch')}</p>}
+      {!showing && <p className="text-sakura font-noto text-sm">{t('puzzle.repeat')} ({playerSeq.length}/{sequence.length})</p>}
       <div className="grid grid-cols-4 gap-4">
         {NODES.map((n) => (
           <button
@@ -190,8 +190,8 @@ function WeightBalancePuzzle({ onSuccess, onFail }: { onSuccess: () => void; onF
 
   return (
     <div className="fixed inset-0 bg-void flex flex-col items-center justify-center gap-6 p-6">
-      <h2 className="font-cinzel text-celestial-gold text-xl">{t('ui.puzzle.weightBalance', 'Weight Balance')}</h2>
-      <p className="text-spirit-blue font-noto text-sm">{t('ui.puzzle.targetWeight', `Target weight: ${TARGET}`)}</p>
+      <h2 className="font-cinzel text-celestial-gold text-xl">{t('puzzle.weightBalance')}</h2>
+      <p className="text-spirit-blue font-noto text-sm">{t('puzzle.targetWeight', { weight: TARGET })}</p>
       <div className="grid grid-cols-2 gap-3">
         {ITEMS.map((item) => (
           <button
@@ -207,12 +207,14 @@ function WeightBalancePuzzle({ onSuccess, onFail }: { onSuccess: () => void; onF
           </button>
         ))}
       </div>
-      <div className="text-celestial-gold font-rajdhani">Current: {total} / Target: {TARGET}</div>
+      <div className="text-celestial-gold font-rajdhani">
+        {t('puzzle.currentWeight', { current: total, target: TARGET })}
+      </div>
       <button
         onClick={handleSubmit}
         className="px-6 py-2 bg-celestial-gold text-void font-rajdhani rounded hover:bg-yellow-400 transition-colors"
       >
-        {t('ui.puzzle.submit', 'Submit')}
+        {t('puzzle.submit')}
       </button>
     </div>
   );

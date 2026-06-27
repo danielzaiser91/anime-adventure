@@ -24,7 +24,9 @@
     "perfect": "Perfect!",
     "good": "Good",
     "miss": "Miss",
-    "easyMode": "Switch to Easy Mode"
+    "easyMode": "Switch to Easy Mode",
+    "enemyTurn": "Enemy is acting...",
+    "holdRelease": "Hold & Release"
   },
   "stats": {
     "courage": "Courage",
@@ -41,13 +43,44 @@
     "hintsRemaining": "{{count}} hints remaining",
     "solved": "Puzzle Solved!",
     "failed": "Try Again",
-    "timeRemaining": "{{time}}s remaining"
+    "timeRemaining": "{{time}}s remaining",
+    "unsupported": "Puzzle loading...",
+    "voidCode": "Void Code",
+    "submit": "Submit",
+    "memorySequence": "Memory Sequence",
+    "watch": "Watch the sequence...",
+    "repeat": "Repeat it!",
+    "weightBalance": "Weight Balance",
+    "targetWeight": "Target weight: {{weight}}",
+    "currentWeight": "Current: {{current}} / Target: {{target}}"
   },
   "minigame": {
     "livesRemaining": "{{count}} lives",
     "success": "Success!",
     "failed": "Failed — Try Again",
-    "easyMode": "Switch to Easy Mode"
+    "easyMode": "Switch to Easy Mode",
+    "rhythmRitual": "Rhythm Ritual",
+    "watch": "Watch...",
+    "repeat": "Repeat!",
+    "branchDodge": "Branch Dodge",
+    "branchDodgeInstr": "Use A/D or ← → to dodge branches!",
+    "squadTactics": "Squad Tactics",
+    "confirm": "Confirm",
+    "stealth": "Stealth Infiltration",
+    "stealthInstr": "Use WASD / Arrow keys. Reach the right side without entering red zones.",
+    "targetLock": "Target Lock",
+    "wave": "Wave: {{current}}/{{total}}",
+    "lives": "Lives: {{count}}",
+    "hits": "Hits: {{current}}/{{total}}",
+    "misses": "Misses: {{current}}/{{max}}",
+    "voidGate": "Void Gate",
+    "partyHp": "Party HP",
+    "round": "Round {{current}}/{{total}}",
+    "selectActions": "Select {{count}} actions",
+    "selected": "{{current}}/{{max}} selected",
+    "attackGate": "Attack Gate",
+    "defend": "Defend",
+    "useItem": "Use Item"
   },
   "save": {
     "save": "Save Game",
@@ -55,6 +88,7 @@
     "autosave": "Auto Save",
     "slot": "Slot {{number}}",
     "empty": "Empty",
+    "saved": "Saved!",
     "confirmOverwrite": "Overwrite this save?",
     "yes": "Yes",
     "no": "No"
@@ -93,7 +127,24 @@
     "testOk": "Connected",
     "testFail": "Invalid key",
     "startAdventure": "Start Adventure",
-    "skip": "Play with pre-generated content →"
+    "skip": "Play with pre-generated content →",
+    "nameTitle": "Enter Your Name",
+    "nameDesc": "You are Kai — the last wielder of the Celestial Blade. What shall the world call you?",
+    "begin": "Begin Your Journey"
+  },
+  "loading": {
+    "complete": "Ready!"
+  },
+  "error": {
+    "title": "An error occurred",
+    "tryAgain": "Try Again"
+  },
+  "exploration": {
+    "close": "Close",
+    "continue": "Continue"
+  },
+  "choices": {
+    "heading": "Choose your path:"
   },
   "install": {
     "prompt": "Take the adventure with you — install the app!",
@@ -105,7 +156,9 @@
     "bladeOfJustice": "Blade of Justice",
     "theLastBlade": "The Last Blade",
     "newGamePlus": "Begin New Game+",
-    "mainMenu": "Return to Main Menu"
+    "mainMenu": "Return to Main Menu",
+    "newGame": "New Game",
+    "titleScreen": "Title Screen"
   },
   "language": {
     "selectLanguage": "Select Language",
@@ -113,6 +166,7 @@
     "german": "Deutsch"
   },
   "pause": {
+    "title": "Paused",
     "resume": "Resume",
     "returnToTitle": "Return to Title",
     "confirmReturn": "Your auto-save is up to date. Return to title?"

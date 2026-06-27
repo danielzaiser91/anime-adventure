@@ -53,16 +53,14 @@ export function StealthSectionGame({ onComplete }: Props) {
 
   return (
     <div className="fixed inset-0 bg-void flex flex-col items-center justify-center gap-4">
-      <h2 className="font-cinzel text-celestial-gold text-xl">{t('ui.minigame.stealth', 'Stealth Infiltration')}</h2>
-      <p className="text-spirit-blue font-noto text-xs">{t('ui.minigame.stealthInstr', 'Use WASD / Arrow keys. Reach the right side without entering red zones.')}</p>
+      <h2 className="font-cinzel text-celestial-gold text-xl">{t('minigame.stealth')}</h2>
+      <p className="text-spirit-blue font-noto text-xs">{t('minigame.stealthInstr')}</p>
 
       <div className="relative w-96 h-64 bg-deep-night border border-spirit-blue rounded overflow-hidden">
-        {/* Goal */}
         <div className="absolute right-0 top-0 bottom-0 w-6 bg-jade bg-opacity-30 flex items-center justify-center">
           <span className="text-jade font-cinzel text-xs rotate-90">EXIT</span>
         </div>
 
-        {/* Guard zones */}
         {GUARDS.map((g, i) => (
           <div
             key={i}
@@ -77,7 +75,6 @@ export function StealthSectionGame({ onComplete }: Props) {
           />
         ))}
 
-        {/* Player */}
         <div
           className={`absolute w-4 h-4 rounded-full transition-all ${detected ? 'bg-red-500' : reached ? 'bg-jade' : 'bg-celestial-gold'}`}
           style={{ left: `${pos.x}%`, top: `${pos.y}%`, transform: 'translate(-50%, -50%)' }}

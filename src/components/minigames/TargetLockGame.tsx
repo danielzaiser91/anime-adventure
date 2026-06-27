@@ -81,9 +81,9 @@ export function TargetLockGame({ onComplete }: Props) {
   return (
     <div className="fixed inset-0 bg-void overflow-hidden">
       <div className="absolute top-4 left-0 right-0 flex justify-center gap-8 z-10">
-        <span className="font-cinzel text-celestial-gold">{t('ui.minigame.targetLock', 'Target Lock')}</span>
-        <span className="font-rajdhani text-jade">Hits: {hits}/{totalTargets}</span>
-        <span className="font-rajdhani text-red-400">Misses: {misses}/{maxMisses}</span>
+        <span className="font-cinzel text-celestial-gold">{t('minigame.targetLock')}</span>
+        <span className="font-rajdhani text-jade">{t('minigame.hits', { current: hits, total: totalTargets })}</span>
+        <span className="font-rajdhani text-red-400">{t('minigame.misses', { current: misses, max: maxMisses })}</span>
       </div>
 
       <div className="absolute inset-0 mt-12">

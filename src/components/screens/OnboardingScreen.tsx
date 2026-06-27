@@ -17,10 +17,10 @@ export function OnboardingScreen() {
   return (
     <div className="fixed inset-0 bg-void flex flex-col items-center justify-center px-8">
       <h2 className="font-cinzel text-celestial-gold text-2xl mb-6 text-center">
-        {t('ui.onboarding.title', 'Enter Your Name')}
+        {t('onboarding.nameTitle')}
       </h2>
       <p className="font-noto text-sakura text-sm mb-8 text-center max-w-sm">
-        {t('ui.onboarding.desc', 'You are Kai — the last wielder of the Celestial Blade. What shall the world call you?')}
+        {t('onboarding.nameDesc')}
       </p>
       <input
         type="text"
@@ -36,7 +36,7 @@ export function OnboardingScreen() {
         disabled={!name.trim()}
         className="px-8 py-3 bg-spirit-blue text-white font-rajdhani text-lg rounded hover:bg-blue-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
       >
-        {t('ui.onboarding.begin', 'Begin Your Journey')}
+        {t('onboarding.begin')}
       </button>
     </div>
   );

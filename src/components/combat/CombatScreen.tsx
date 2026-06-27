@@ -178,7 +178,7 @@ export function CombatScreen({ encounter, enemies, playerStats, onVictory, onDef
         {(state.phase === 'victory' || state.phase === 'defeat') && (
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 z-30">
             <div className={`font-cinzel text-5xl animate-pulse ${state.phase === 'victory' ? 'text-celestial-gold' : 'text-red-500'}`}>
-              {state.phase === 'victory' ? t('ui.combat.victory', 'VICTORY') : t('ui.combat.defeat', 'DEFEAT')}
+              {state.phase === 'victory' ? t('combat.victory') : t('combat.defeat')}
             </div>
           </div>
         )}
@@ -202,8 +202,8 @@ export function CombatScreen({ encounter, enemies, playerStats, onVictory, onDef
                 onTouchEnd={() => releaseAttack(0)}
                 className="px-5 py-3 bg-celestial-gold text-void font-rajdhani rounded hover:bg-yellow-400 active:scale-95 transition-all select-none"
               >
-                {t('ui.combat.attack', 'Attack')}
-                <div className="text-xs opacity-70">Hold &amp; Release</div>
+                {t('combat.attack')}
+                <div className="text-xs opacity-70">{t('combat.holdRelease')}</div>
               </button>
               {skills.map((skill) => (
                 <button
@@ -220,7 +220,7 @@ export function CombatScreen({ encounter, enemies, playerStats, onVictory, onDef
 
           {state.phase === 'enemy_turn' && (
             <div className="text-sakura font-cinzel text-sm animate-pulse mt-3">
-              {t('ui.combat.enemyTurn', 'Enemy is acting...')}
+              {t('combat.enemyTurn')}
             </div>
           )}
         </div>

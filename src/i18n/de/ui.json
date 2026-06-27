@@ -24,7 +24,9 @@
     "perfect": "Perfekt!",
     "good": "Gut",
     "miss": "Verfehlt",
-    "easyMode": "Einfachen Modus aktivieren"
+    "easyMode": "Einfachen Modus aktivieren",
+    "enemyTurn": "Feind ist am Zug...",
+    "holdRelease": "Halten & Loslassen"
   },
   "stats": {
     "courage": "Mut",
@@ -41,13 +43,44 @@
     "hintsRemaining": "{{count}} Hinweise übrig",
     "solved": "Rätsel gelöst!",
     "failed": "Erneut versuchen",
-    "timeRemaining": "{{time}}s verbleibend"
+    "timeRemaining": "{{time}}s verbleibend",
+    "unsupported": "Rätsel lädt...",
+    "voidCode": "Leerer-Code",
+    "submit": "Bestätigen",
+    "memorySequence": "Gedächtnisfolge",
+    "watch": "Folge beobachten...",
+    "repeat": "Wiederholen!",
+    "weightBalance": "Gewichtswaage",
+    "targetWeight": "Zielgewicht: {{weight}}",
+    "currentWeight": "Aktuell: {{current}} / Ziel: {{target}}"
   },
   "minigame": {
     "livesRemaining": "{{count}} Leben",
     "success": "Erfolg!",
     "failed": "Gescheitert — erneut versuchen",
-    "easyMode": "Zum einfachen Modus wechseln"
+    "easyMode": "Zum einfachen Modus wechseln",
+    "rhythmRitual": "Rhythmus-Ritual",
+    "watch": "Beobachten...",
+    "repeat": "Wiederholen!",
+    "branchDodge": "Astausweichen",
+    "branchDodgeInstr": "A/D oder ← → drücken, um Ästen auszuweichen!",
+    "squadTactics": "Truppentaktik",
+    "confirm": "Bestätigen",
+    "stealth": "Schleicheinsatz",
+    "stealthInstr": "WASD / Pfeiltasten nutzen. Rechte Seite erreichen ohne rote Zonen zu betreten.",
+    "targetLock": "Zielerfassung",
+    "wave": "Welle: {{current}}/{{total}}",
+    "lives": "Leben: {{count}}",
+    "hits": "Treffer: {{current}}/{{total}}",
+    "misses": "Fehlschüsse: {{current}}/{{max}}",
+    "voidGate": "Leerestor",
+    "partyHp": "Trupp-LP",
+    "round": "Runde {{current}}/{{total}}",
+    "selectActions": "{{count}} Aktionen wählen",
+    "selected": "{{current}}/{{max}} gewählt",
+    "attackGate": "Tor angreifen",
+    "defend": "Verteidigen",
+    "useItem": "Gegenstand nutzen"
   },
   "save": {
     "save": "Spiel speichern",
@@ -55,6 +88,7 @@
     "autosave": "Automatisch gespeichert",
     "slot": "Slot {{number}}",
     "empty": "Leer",
+    "saved": "Gespeichert!",
     "confirmOverwrite": "Diesen Speicherstand überschreiben?",
     "yes": "Ja",
     "no": "Nein"
@@ -93,7 +127,24 @@
     "testOk": "Verbunden",
     "testFail": "Ungültiger Schlüssel",
     "startAdventure": "Abenteuer starten",
-    "skip": "Mit vorgeneriertem Inhalt spielen →"
+    "skip": "Mit vorgeneriertem Inhalt spielen →",
+    "nameTitle": "Gib deinen Namen ein",
+    "nameDesc": "Du bist Kai – der letzte Träger der Himmelsklinge. Wie soll die Welt dich nennen?",
+    "begin": "Beginne deine Reise"
+  },
+  "loading": {
+    "complete": "Bereit!"
+  },
+  "error": {
+    "title": "Ein Fehler ist aufgetreten",
+    "tryAgain": "Erneut versuchen"
+  },
+  "exploration": {
+    "close": "Schließen",
+    "continue": "Weiter"
+  },
+  "choices": {
+    "heading": "Wähle deinen Weg:"
   },
   "install": {
     "prompt": "Nimm das Abenteuer überall hin mit — installiere die App!",
@@ -105,7 +156,9 @@
     "bladeOfJustice": "Klinge der Gerechtigkeit",
     "theLastBlade": "Die letzte Klinge",
     "newGamePlus": "Neues Spiel+ beginnen",
-    "mainMenu": "Zum Hauptmenü"
+    "mainMenu": "Zum Hauptmenü",
+    "newGame": "Neues Spiel",
+    "titleScreen": "Titelbildschirm"
   },
   "language": {
     "selectLanguage": "Sprache wählen",
@@ -113,6 +166,7 @@
     "german": "Deutsch"
   },
   "pause": {
+    "title": "Pausiert",
     "resume": "Fortsetzen",
     "returnToTitle": "Zum Hauptmenü",
     "confirmReturn": "Dein automatischer Speicherstand ist aktuell. Zum Hauptmenü zurückkehren?"

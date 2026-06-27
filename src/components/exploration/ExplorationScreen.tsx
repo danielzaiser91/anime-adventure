@@ -11,14 +11,15 @@ interface Props {
 }
 
 export function ExplorationScreen({ exploration, background, onHotspotActivated, onContinue }: Props) {
-  const { t } = useTranslation('story');
+  const { t: ts } = useTranslation('story');
+  const { t } = useTranslation();
   const bgUrl = useImageUrl(background);
   const [activatedIds, setActivatedIds] = useState<Set<string>>(new Set());
   const [activeText, setActiveText] = useState<string | null>(null);
 
   function handleHotspot(id: string, textKey: string) {
     setActivatedIds((prev) => new Set([...prev, id]));
-    setActiveText(t(textKey, { defaultValue: textKey }));
+    setActiveText(ts(textKey, { defaultValue: textKey }));
     onHotspotActivated(id);
   }
 
@@ -46,7 +47,9 @@ export function ExplorationScreen({ exploration, background, onHotspotActivated,
         <div className="absolute bottom-20 left-4 right-4">
           <div className="max-w-4xl mx-auto bg-void bg-opacity-90 border border-spirit-blue rounded-lg p-4">
             <p className="font-noto text-white text-base">{activeText}</p>
-            <button onClick={() => setActiveText(null)} className="mt-2 text-spirit-blue text-xs hover:text-white">Close ×</button>
+            <button onClick={() => setActiveText(null)} className="mt-2 text-spirit-blue text-xs hover:text-white">
+              {t('exploration.close')}
+            </button>
           </div>
         </div>
       )}
@@ -58,7 +61,7 @@ export function ExplorationScreen({ exploration, background, onHotspotActivated,
               onClick={onContinue}
               className="px-8 py-3 bg-spirit-blue text-white font-rajdhani rounded hover:bg-blue-700 transition-colors"
             >
-              Continue →
+              {t('exploration.continue')} →
             </button>
           </div>
         </div>

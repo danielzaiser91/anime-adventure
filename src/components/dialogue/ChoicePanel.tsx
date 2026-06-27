@@ -15,12 +15,13 @@ function requirementsMet(reqs: StatRequirement[] | undefined, stats: GameStats):
 }
 
 export function ChoicePanel({ choices, stats, flags, onSelect }: Props) {
-  const { t } = useTranslation('story');
+  const { t: ts } = useTranslation('story');
+  const { t } = useTranslation();
 
   return (
     <div className="fixed bottom-0 left-0 right-0 px-4 pb-4">
       <div className="max-w-4xl mx-auto bg-void bg-opacity-95 border border-celestial-gold rounded-lg p-4">
-        <div className="text-celestial-gold font-cinzel text-sm mb-3">Choose your path:</div>
+        <div className="text-celestial-gold font-cinzel text-sm mb-3">{t('choices.heading')}</div>
         <div className="flex flex-col gap-2">
           {choices.map((choice) => {
             const available = requirementsMet(choice.requires, stats);
@@ -36,7 +37,7 @@ export function ChoicePanel({ choices, stats, flags, onSelect }: Props) {
                   }`}
               >
                 <span className="text-spirit-blue mr-2">▶</span>
-                {t(choice.textKey, { defaultValue: choice.textKey })}
+                {ts(choice.textKey, { defaultValue: choice.textKey })}
                 {choice.requires && !available && (
                   <span className="ml-2 text-xs text-sakura">
                     ({choice.requires.map((r) => `${r.stat} ≥ ${r.minimum}`).join(', ')})

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useReducer } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { createBranchDodgeState, moveLane } from '../../engine/minigameEngine';
 import type { BranchDodgeState } from '../../engine/minigameEngine';
@@ -40,9 +40,11 @@ export function BranchDodgeGame({ onComplete }: Props) {
 
   return (
     <div className="fixed inset-0 bg-void flex flex-col items-center justify-center gap-4 overflow-hidden">
-      <h2 className="font-cinzel text-celestial-gold text-xl">{t('ui.minigame.branchDodge', 'Branch Dodge')}</h2>
-      <p className="text-spirit-blue font-noto text-sm">{t('ui.minigame.branchDodgeInstr', 'Use A/D or ← → to dodge branches!')}</p>
-      <p className="text-sakura font-rajdhani text-sm">Wave: {state.wave}/{state.totalWaves} | Lives: {state.lives}</p>
+      <h2 className="font-cinzel text-celestial-gold text-xl">{t('minigame.branchDodge')}</h2>
+      <p className="text-spirit-blue font-noto text-sm">{t('minigame.branchDodgeInstr')}</p>
+      <p className="text-sakura font-rajdhani text-sm">
+        {t('minigame.wave', { current: state.wave, total: state.totalWaves })} | {t('minigame.lives', { count: state.lives })}
+      </p>
 
       <div className="flex gap-6 mt-4">
         {lanes.map((lane) => (
