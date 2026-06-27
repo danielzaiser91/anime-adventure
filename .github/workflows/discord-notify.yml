@@ -9,6 +9,9 @@ on:
     types:
       - published
 
+permissions:
+  contents: write
+
 jobs:
   notify:
     runs-on: ubuntu-latest
@@ -19,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 1
 
       - name: Get version and changelog
         id: meta
@@ -40,45 +43,70 @@ jobs:
             echo "title=🚀 New Update Deployed!" >> $GITHUB_OUTPUT
           fi
 
-      - name: Post to Discord
+      - name: Post or edit Discord message
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
           VERSION="${{ steps.meta.outputs.version }}"
           TITLE="${{ steps.meta.outputs.title }}"
           COMMIT="${{ steps.meta.outputs.commit_msg }}"
-          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
-          PAYLOAD=$(cat <<EOF
-          {
-            "username": "Celestial Blade News",
-            "avatar_url": "https://danielzaiser91.github.io/anime-adventure/assets/logo.svg",
-            "embeds": [{
-              "title": "$TITLE",
-              "description": "**Chronicles of the Celestial Blade** has been updated!\n\n> $COMMIT",
+          MESSAGES_FILE=".github/discord-messages.json"
+
+          # Look up existing message ID for this version
+          EXISTING_MSG_ID=$(jq -r --arg v "$VERSION" '.[$v] // empty' "$MESSAGES_FILE")
+
+          # Build embeds safely via jq (guards against special chars in commit messages)
+          EMBEDS=$(jq -n \
+            --arg title "$TITLE" \
+            --arg commit "$COMMIT" \
+            --arg version "v$VERSION" \
+            '[{
+              "title": $title,
+              "description": ("**Chronicles of the Celestial Blade** has been updated!\n\n> " + $commit),
               "url": "https://danielzaiser91.github.io/anime-adventure/",
               "color": 4286489,
               "fields": [
-                {
-                  "name": "🗡️ Version",
-                  "value": "v$VERSION",
-                  "inline": true
-                },
-                {
-                  "name": "🌐 Play Now",
-                  "value": "[Open Game](https://danielzaiser91.github.io/anime-adventure/)",
-                  "inline": true
-                }
+                { "name": "🗡️ Version", "value": $version, "inline": true },
+                { "name": "🌐 Play Now", "value": "[Open Game](https://danielzaiser91.github.io/anime-adventure/)", "inline": true }
               ],
-              "footer": {
-                "text": "Chronicles of the Celestial Blade"
-              },
-              "timestamp": "$TIMESTAMP"
-            }]
-          }
-          EOF
-          )
+              "footer": { "text": "Chronicles of the Celestial Blade" },
+              "timestamp": (now | todate)
+            }]')
 
-          curl -s -H "Content-Type: application/json" \
-               -d "$PAYLOAD" \
-               "$DISCORD_WEBHOOK_URL"
+          if [ -n "$EXISTING_MSG_ID" ]; then
+            echo "Version $VERSION already posted (message $EXISTING_MSG_ID) — editing in place."
+            # PATCH only accepts embeds (no username/avatar_url)
+            PATCH_PAYLOAD=$(jq -n --argjson embeds "$EMBEDS" '{"embeds": $embeds}')
+            curl -s -X PATCH \
+                 -H "Content-Type: application/json" \
+                 -d "$PATCH_PAYLOAD" \
+                 "$DISCORD_WEBHOOK_URL/messages/$EXISTING_MSG_ID"
+          else
+            echo "New version $VERSION — posting new message."
+            POST_PAYLOAD=$(jq -n \
+              --arg username "Celestial Blade News" \
+              --arg avatar "https://danielzaiser91.github.io/anime-adventure/assets/logo.svg" \
+              --argjson embeds "$EMBEDS" \
+              '{"username": $username, "avatar_url": $avatar, "embeds": $embeds}')
+            RESPONSE=$(curl -s \
+                            -H "Content-Type: application/json" \
+                            -d "$POST_PAYLOAD" \
+                            "$DISCORD_WEBHOOK_URL?wait=true")
+            MSG_ID=$(echo "$RESPONSE" | jq -r '.id // empty')
+
+            if [ -z "$MSG_ID" ]; then
+              echo "Warning: could not get message ID from Discord response: $RESPONSE"
+              exit 0
+            fi
+
+            # Record version → message ID and commit back
+            jq --arg v "$VERSION" --arg id "$MSG_ID" '.[$v] = $id' "$MESSAGES_FILE" > /tmp/discord-messages-new.json
+            mv /tmp/discord-messages-new.json "$MESSAGES_FILE"
+
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add "$MESSAGES_FILE"
+            git commit -m "chore: track Discord message ID for v$VERSION [skip ci]"
+            git push
+          fi
