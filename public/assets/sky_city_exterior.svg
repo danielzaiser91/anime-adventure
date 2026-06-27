@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2a5e"/>
+      <stop offset="50%" stop-color="#2a4080"/>
+      <stop offset="100%" stop-color="#c0d8f8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <!-- Sun/light source -->
+  <circle cx="400" cy="200" r="100" fill="#ffe0a0" opacity="0.7"/>
+  <circle cx="400" cy="200" r="150" fill="#ffd070" opacity="0.2"/>
+  <!-- Clouds -->
+  <ellipse cx="300" cy="700" rx="250" ry="60" fill="white" opacity="0.8"/>
+  <ellipse cx="500" cy="680" rx="200" ry="50" fill="white" opacity="0.7"/>
+  <ellipse cx="1500" cy="750" rx="280" ry="65" fill="white" opacity="0.75"/>
+  <ellipse cx="1650" cy="730" rx="200" ry="55" fill="white" opacity="0.7"/>
+  <ellipse cx="900" cy="800" rx="350" ry="70" fill="white" opacity="0.6"/>
+  <!-- Floating city platform -->
+  <ellipse cx="960" cy="550" rx="700" ry="80" fill="#d4c090" opacity="0.9"/>
+  <ellipse cx="960" cy="570" rx="720" ry="70" fill="#c8b080" opacity="0.8"/>
+  <!-- Buildings on platform -->
+  <rect x="500" y="250" width="120" height="300" fill="#e8d8b0" opacity="0.95"/>
+  <polygon points="490,250 630,250 560,190" fill="#c8a860" opacity="0.9"/>
+  <rect x="700" y="200" width="160" height="350" fill="#f0e0c0" opacity="0.9"/>
+  <polygon points="688,200 872,200 780,130" fill="#d4b870" opacity="0.9"/>
+  <rect x="900" y="150" width="140" height="400" fill="#e8d8b0" opacity="0.95"/>
+  <polygon points="885,150 1055,150 970,80" fill="#c8a860" opacity="0.9"/>
+  <rect x="1120" y="220" width="130" height="330" fill="#f0e0c0" opacity="0.9"/>
+  <polygon points="1108,220 1262,220 1185,155" fill="#d4b870" opacity="0.9"/>
+  <rect x="1330" y="270" width="110" height="280" fill="#e8d8b0" opacity="0.9"/>
+  <!-- Windows/lights -->
+  <rect x="530" y="280" width="20" height="25" fill="#ffd070" opacity="0.8"/>
+  <rect x="570" y="280" width="20" height="25" fill="#ffd070" opacity="0.7"/>
+  <rect x="720" y="230" width="25" height="30" fill="#ffd070" opacity="0.8"/>
+  <rect x="760" y="230" width="25" height="30" fill="#ffd070" opacity="0.75"/>
+  <!-- Support chains/ropes -->
+  <line x1="280" y1="570" x2="400" y2="800" stroke="#8b7050" stroke-width="3" opacity="0.5"/>
+  <line x1="1640" y1="570" x2="1520" y2="800" stroke="#8b7050" stroke-width="3" opacity="0.5"/>
+  <!-- Floating debris/rocks -->
+  <ellipse cx="200" cy="600" rx="80" ry="40" fill="#c8b070" opacity="0.6"/>
+  <ellipse cx="1750" cy="620" rx="70" ry="35" fill="#c8b070" opacity="0.55"/>
+</svg>

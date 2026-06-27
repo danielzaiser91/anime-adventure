@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { PuzzleConfig } from '../../types/game.types';
 import { encodedVoidMessage, PRE_REVEALED_MAPPINGS, VOID_CIPHER_REVERSE, validateVoidCode } from '../../engine/puzzleEngine';
@@ -12,6 +12,9 @@ interface Props {
 export function PuzzleScreen({ puzzle, onSuccess, onFail }: Props) {
   const { t } = useTranslation();
 
+  if (puzzle.type === 'seal_assembly') {
+    return <SealAssemblyPuzzle puzzle={puzzle} onSuccess={onSuccess} onFail={onFail} />;
+  }
   if (puzzle.type === 'void_code') {
     return <VoidCodePuzzle puzzle={puzzle} onSuccess={onSuccess} onFail={onFail} />;
   }
@@ -215,6 +218,120 @@ function WeightBalancePuzzle({ onSuccess, onFail }: { onSuccess: () => void; onF
         className="px-6 py-2 bg-celestial-gold text-void font-rajdhani rounded hover:bg-yellow-400 transition-colors"
       >
         {t('puzzle.submit')}
+      </button>
+    </div>
+  );
+}
+
+// Seal Assembly: tap the 4 rune fragments in the correct order (N → E → S → W)
+const SEAL_ORDER = ['N', 'E', 'S', 'W'] as const;
+type SealRune = typeof SEAL_ORDER[number];
+
+function SealAssemblyPuzzle({ puzzle, onSuccess, onFail }: { puzzle: PuzzleConfig; onSuccess: () => void; onFail: () => void }) {
+  const { t } = useTranslation();
+  const [activated, setActivated] = useState<SealRune[]>([]);
+  const [mistake, setMistake] = useState(false);
+  const [hintsUsed, setHintsUsed] = useState(0);
+  const maxHints = puzzle.maxHints ?? 3;
+
+  const runePositions: Record<SealRune, { top: string; left: string }> = {
+    N: { top: '10%', left: '42%' },
+    E: { top: '42%', left: '74%' },
+    S: { top: '74%', left: '42%' },
+    W: { top: '42%', left: '10%' },
+  };
+
+  function handleRune(rune: SealRune) {
+    if (mistake) return;
+    const expected = SEAL_ORDER[activated.length];
+    if (rune !== expected) {
+      setMistake(true);
+      setTimeout(() => {
+        setActivated([]);
+        setMistake(false);
+        onFail(); // apply stat penalty but continue
+      }, 900);
+      return;
+    }
+    const next = [...activated, rune];
+    setActivated(next);
+    if (next.length === SEAL_ORDER.length) {
+      setTimeout(onSuccess, 600);
+    }
+  }
+
+  function handleHint() {
+    if (hintsUsed >= maxHints) return;
+    const next = SEAL_ORDER[activated.length];
+    if (next) {
+      setHintsUsed((h) => h + 1);
+      handleRune(next);
+    }
+  }
+
+  const sealComplete = activated.length === SEAL_ORDER.length;
+
+  return (
+    <div className="fixed inset-0 bg-void bg-opacity-95 flex flex-col items-center justify-center gap-4 p-6">
+      <h2 className="font-cinzel text-celestial-gold text-xl">{t('puzzle.sealAssembly', { defaultValue: 'Seal Assembly' })}</h2>
+      <p className="text-spirit-blue font-rajdhani text-sm text-center max-w-md">
+        {t('puzzle.sealInstr', { defaultValue: 'Activate the four rune fragments in the correct order to restore the ancient seal.' })}
+      </p>
+
+      {/* Seal diagram */}
+      <div className="relative w-64 h-64 my-4">
+        {/* Center circle */}
+        <div className={`absolute inset-8 rounded-full border-4 transition-all duration-500
+          ${sealComplete ? 'border-celestial-gold bg-celestial-gold bg-opacity-20' : mistake ? 'border-red-500' : 'border-void-purple bg-void-purple bg-opacity-10'}`}
+        />
+        {/* Cross lines */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className={`w-full h-px ${mistake ? 'bg-red-500' : 'bg-void-purple'} opacity-40`} />
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className={`h-full w-px ${mistake ? 'bg-red-500' : 'bg-void-purple'} opacity-40`} />
+        </div>
+
+        {/* Rune buttons */}
+        {(Object.entries(runePositions) as [SealRune, { top: string; left: string }][]).map(([rune, pos]) => {
+          const isActive = activated.includes(rune);
+          return (
+            <button
+              key={rune}
+              onClick={() => handleRune(rune)}
+              disabled={isActive || sealComplete}
+              className={`absolute w-14 h-14 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 font-cinzel text-lg transition-all duration-300 select-none
+                ${isActive
+                  ? 'bg-celestial-gold border-celestial-gold text-void scale-110'
+                  : mistake
+                    ? 'bg-red-900 border-red-500 text-red-300'
+                    : 'bg-deep-night border-spirit-blue text-spirit-blue hover:border-celestial-gold hover:text-celestial-gold hover:scale-105 active:scale-95'
+                }`}
+              style={{ top: pos.top, left: pos.left }}
+            >
+              {rune}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Progress indicator */}
+      <div className="flex gap-2">
+        {SEAL_ORDER.map((_, i) => (
+          <div key={i} className={`w-3 h-3 rounded-full transition-all duration-300
+            ${i < activated.length ? 'bg-celestial-gold' : 'bg-gray-700'}`}
+          />
+        ))}
+      </div>
+
+      {mistake && <p className="text-red-400 font-rajdhani text-sm animate-pulse">{t('puzzle.wrongOrder', { defaultValue: 'Wrong order — try again' })}</p>}
+
+      <button
+        onClick={handleHint}
+        disabled={hintsUsed >= maxHints || sealComplete}
+        className="px-4 py-2 border border-sakura text-sakura font-rajdhani rounded hover:bg-sakura hover:text-void transition-colors disabled:opacity-40 text-sm mt-2"
+      >
+        {t('puzzle.hint')} ({maxHints - hintsUsed})
       </button>
     </div>
   );

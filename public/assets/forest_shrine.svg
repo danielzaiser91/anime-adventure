@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a1020"/>
+      <stop offset="60%" stop-color="#1a2030"/>
+      <stop offset="100%" stop-color="#0d1a10"/>
+    </linearGradient>
+    <radialGradient id="shrineGlow" cx="50%" cy="55%" r="25%">
+      <stop offset="0%" stop-color="#ffd700" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ffd700" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <rect width="1920" height="1080" fill="url(#shrineGlow)"/>
+  <!-- Background forest -->
+  <polygon points="0,1080 150,400 300,1080" fill="#071008" opacity="0.9"/>
+  <polygon points="200,1080 350,350 500,1080" fill="#091209" opacity="0.85"/>
+  <polygon points="1400,1080 1560,370 1720,1080" fill="#071008" opacity="0.9"/>
+  <polygon points="1600,1080 1760,400 1920,1080" fill="#091209" opacity="0.85"/>
+  <!-- Torii gate -->
+  <rect x="820" y="280" width="40" height="500" fill="#8b1a00" opacity="0.95"/>
+  <rect x="1060" y="280" width="40" height="500" fill="#8b1a00" opacity="0.95"/>
+  <rect x="790" y="280" width="340" height="35" fill="#8b1a00" opacity="0.95"/>
+  <rect x="800" y="320" width="320" height="20" fill="#a02000" opacity="0.8"/>
+  <!-- Shrine building -->
+  <rect x="760" y="600" width="400" height="250" fill="#3a2510" opacity="0.9"/>
+  <polygon points="720,600 1200,600 960,480" fill="#2a1a08" opacity="0.95"/>
+  <polygon points="750,600 1170,600 960,500" fill="#3a2008" opacity="0.8"/>
+  <!-- Shrine door -->
+  <rect x="900" y="700" width="120" height="150" fill="#1a0c04" opacity="0.9"/>
+  <!-- Lanterns -->
+  <ellipse cx="860" cy="560" rx="20" ry="28" fill="#ff8800" opacity="0.7"/>
+  <rect x="858" y="532" width="4" height="30" fill="#8b4513" opacity="0.9"/>
+  <ellipse cx="1060" cy="560" rx="20" ry="28" fill="#ff8800" opacity="0.7"/>
+  <rect x="1058" y="532" width="4" height="30" fill="#8b4513" opacity="0.9"/>
+  <!-- Floating spirit orbs -->
+  <circle cx="700" cy="500" r="8" fill="#ffd700" opacity="0.7"/>
+  <circle cx="1220" cy="520" r="6" fill="#ffd700" opacity="0.6"/>
+  <circle cx="500" cy="600" r="5" fill="#c084fc" opacity="0.5"/>
+  <!-- Ground stone path -->
+  <ellipse cx="960" cy="900" rx="200" ry="25" fill="#2a2010" opacity="0.8"/>
+  <ellipse cx="960" cy="870" rx="100" ry="15" fill="#2a2010" opacity="0.6"/>
+  <!-- Ground -->
+  <rect x="0" y="870" width="1920" height="210" fill="#0a1208" opacity="0.9"/>
+  <!-- Moon -->
+  <circle cx="1700" cy="150" r="55" fill="#d4e8d0" opacity="0.5"/>
+</svg>

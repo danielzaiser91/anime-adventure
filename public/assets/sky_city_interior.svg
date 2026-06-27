@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="hall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1530"/>
+      <stop offset="100%" stop-color="#0d0a20"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="40%" r="35%">
+      <stop offset="0%" stop-color="#ffd700" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ffd700" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#hall)"/>
+  <rect width="1920" height="1080" fill="url(#centerGlow)"/>
+  <!-- Marble floor -->
+  <rect x="0" y="800" width="1920" height="280" fill="#2a2440" opacity="0.9"/>
+  <!-- Floor grid lines -->
+  <line x1="0" y1="820" x2="1920" y2="820" stroke="#3a3460" stroke-width="1" opacity="0.4"/>
+  <line x1="320" y1="800" x2="480" y2="1080" stroke="#3a3460" stroke-width="1" opacity="0.3"/>
+  <line x1="640" y1="800" x2="720" y2="1080" stroke="#3a3460" stroke-width="1" opacity="0.3"/>
+  <line x1="960" y1="800" x2="960" y2="1080" stroke="#3a3460" stroke-width="1" opacity="0.3"/>
+  <line x1="1280" y1="800" x2="1200" y2="1080" stroke="#3a3460" stroke-width="1" opacity="0.3"/>
+  <line x1="1600" y1="800" x2="1440" y2="1080" stroke="#3a3460" stroke-width="1" opacity="0.3"/>
+  <!-- Tall arch columns -->
+  <rect x="200" y="0" width="60" height="820" fill="#221e38" opacity="0.95"/>
+  <rect x="500" y="0" width="50" height="820" fill="#221e38" opacity="0.9"/>
+  <rect x="780" y="0" width="50" height="820" fill="#221e38" opacity="0.9"/>
+  <rect x="1090" y="0" width="50" height="820" fill="#221e38" opacity="0.9"/>
+  <rect x="1370" y="0" width="50" height="820" fill="#221e38" opacity="0.9"/>
+  <rect x="1660" y="0" width="60" height="820" fill="#221e38" opacity="0.95"/>
+  <!-- Gold trim on columns -->
+  <rect x="200" y="400" width="60" height="8" fill="#ffd700" opacity="0.4"/>
+  <rect x="500" y="400" width="50" height="6" fill="#ffd700" opacity="0.35"/>
+  <rect x="780" y="400" width="50" height="6" fill="#ffd700" opacity="0.35"/>
+  <!-- Sky visible through arches -->
+  <rect x="260" y="0" width="240" height="820" fill="#2a4080" opacity="0.4"/>
+  <rect x="550" y="0" width="230" height="820" fill="#2a4080" opacity="0.35"/>
+  <rect x="830" y="0" width="260" height="820" fill="#2a4080" opacity="0.35"/>
+  <rect x="1140" y="0" width="230" height="820" fill="#2a4080" opacity="0.35"/>
+  <rect x="1420" y="0" width="240" height="820" fill="#2a4080" opacity="0.4"/>
+  <!-- Hanging lanterns -->
+  <rect x="955" y="0" width="10" height="200" fill="#8b7050" opacity="0.6"/>
+  <ellipse cx="960" cy="220" rx="40" ry="55" fill="#ffd070" opacity="0.8"/>
+  <ellipse cx="960" cy="220" rx="35" ry="48" fill="#ffe090" opacity="0.6"/>
+  <!-- Side lanterns -->
+  <rect x="375" y="0" width="6" height="150" fill="#8b7050" opacity="0.5"/>
+  <ellipse cx="378" cy="165" rx="28" ry="40" fill="#ffd070" opacity="0.7"/>
+  <rect x="1535" y="0" width="6" height="150" fill="#8b7050" opacity="0.5"/>
+  <ellipse cx="1538" cy="165" rx="28" ry="40" fill="#ffd070" opacity="0.7"/>
+</svg>

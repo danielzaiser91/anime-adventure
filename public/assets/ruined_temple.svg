@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0a1e"/>
+      <stop offset="50%" stop-color="#1a1230"/>
+      <stop offset="100%" stop-color="#0a0816"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <!-- Moon -->
+  <circle cx="960" cy="200" r="80" fill="#c8b8e0" opacity="0.6"/>
+  <circle cx="990" cy="185" r="70" fill="#1a1230" opacity="0.7"/>
+  <!-- Temple pillars -->
+  <rect x="300" y="350" width="80" height="500" fill="#2a1f40" opacity="0.9"/>
+  <rect x="500" y="300" width="80" height="550" fill="#2a1f40" opacity="0.85"/>
+  <rect x="900" y="280" width="80" height="570" fill="#332050" opacity="0.85"/>
+  <rect x="1100" y="300" width="80" height="550" fill="#2a1f40" opacity="0.85"/>
+  <rect x="1300" y="320" width="80" height="530" fill="#2a1f40" opacity="0.9"/>
+  <rect x="1500" y="350" width="80" height="500" fill="#2a1f40" opacity="0.9"/>
+  <!-- Crumbled pillar tops -->
+  <polygon points="300,350 380,350 360,310 320,310" fill="#1a1030"/>
+  <polygon points="900,280 980,280 960,240 920,240" fill="#221540"/>
+  <!-- Temple roof fragment -->
+  <polygon points="400,300 1520,300 1600,200 300,200" fill="#1a1030" opacity="0.7"/>
+  <!-- Vine/moss markings on pillars -->
+  <rect x="305" y="400" width="70" height="4" fill="#2a4a1a" opacity="0.6"/>
+  <rect x="305" y="500" width="70" height="3" fill="#2a4a1a" opacity="0.5"/>
+  <!-- Glowing runes on center pillar -->
+  <rect x="930" y="400" width="20" height="3" fill="#7b2d8b" opacity="0.8"/>
+  <rect x="930" y="430" width="15" height="3" fill="#4169e1" opacity="0.8"/>
+  <rect x="930" y="460" width="20" height="3" fill="#7b2d8b" opacity="0.7"/>
+  <!-- Ground -->
+  <rect x="0" y="800" width="1920" height="280" fill="#0a0610" opacity="0.9"/>
+  <!-- Scattered stones -->
+  <ellipse cx="600" cy="810" rx="50" ry="15" fill="#1a1030" opacity="0.8"/>
+  <ellipse cx="1300" cy="815" rx="40" ry="12" fill="#1a1030" opacity="0.7"/>
+  <ellipse cx="960" cy="820" rx="70" ry="18" fill="#221540" opacity="0.8"/>
+  <!-- Mist on ground -->
+  <ellipse cx="960" cy="850" rx="600" ry="60" fill="#7b2d8b" opacity="0.08"/>
+  <!-- Stars -->
+  <circle cx="200" cy="100" r="1.5" fill="white" opacity="0.6"/>
+  <circle cx="400" cy="80" r="1" fill="white" opacity="0.5"/>
+  <circle cx="700" cy="120" r="1.5" fill="white" opacity="0.7"/>
+  <circle cx="1200" cy="90" r="1" fill="white" opacity="0.5"/>
+  <circle cx="1600" cy="110" r="1.5" fill="white" opacity="0.6"/>
+  <circle cx="1800" cy="70" r="1" fill="white" opacity="0.4"/>
+</svg>

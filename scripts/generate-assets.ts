@@ -71,6 +71,13 @@ const BG_PROMPTS: Record<string, string> = {
   combat_bg_forest: 'anime style, forest edge battle arena, dramatic lighting, centered composition, combat ready atmosphere, trees framing scene',
   combat_bg_citadel: 'anime style, void citadel throne chamber combat arena, dark energy, dramatic lighting, centered for combat, oppressive atmosphere',
   village_destroyed: 'anime style, small mountain village in ruins, buildings on fire and collapsed, thick smoke rising, burning embers, devastated atmosphere, orange-red glow from flames, night sky, dramatic and sorrowful',
+  village_peaceful: 'anime style, small peaceful mountain village with cherry blossom trees, warm golden afternoon light, citizens relaxing, cozy and serene atmosphere',
+  ruined_temple: 'anime style, ancient crumbling temple at night, broken stone pillars, moonlight through gaps, glowing runes on walls, mystical and haunting atmosphere',
+  whispering_forest: 'anime style, dark mystical night forest, towering ancient trees, spirit wisps floating between trunks, moonlight filtering through canopy, eerie and beautiful',
+  forest_shrine: 'anime style, hidden forest shrine at night, red torii gate, paper lanterns glowing warmly, ancient stone path, sacred and mysterious atmosphere',
+  sky_city_exterior: 'anime style, exterior view of magnificent floating sky city, golden and white architecture on cloud platforms, blue sky with sun rays, majestic birds eye view',
+  sky_city_interior: 'anime style, interior of sky city grand hall, tall marble columns, hanging golden lanterns, ornate celestial architecture, warm light and grandeur',
+  void_gate: 'anime style, massive dark void gate, swirling dark energy portal framed by black crystal pillars, glowing purple runes, ominous and powerful',
 };
 
 // ─── Asset manifest ──────────────────────────────────────────────────────────

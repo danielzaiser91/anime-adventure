@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#87ceeb"/>
+      <stop offset="60%" stop-color="#ffd4a0"/>
+      <stop offset="100%" stop-color="#ff8c50"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <!-- Sun -->
+  <circle cx="960" cy="300" r="80" fill="#ffe060" opacity="0.9"/>
+  <circle cx="960" cy="300" r="100" fill="#ffe060" opacity="0.3"/>
+  <!-- Cherry blossom trees -->
+  <rect x="200" y="500" width="30" height="350" fill="#5c3317"/>
+  <ellipse cx="215" cy="480" rx="80" ry="70" fill="#ffb7c5" opacity="0.9"/>
+  <ellipse cx="185" cy="510" rx="60" ry="50" fill="#ffcad4" opacity="0.7"/>
+  <rect x="600" y="450" width="25" height="400" fill="#5c3317"/>
+  <ellipse cx="612" cy="430" rx="90" ry="75" fill="#ffb7c5" opacity="0.85"/>
+  <rect x="1300" y="470" width="28" height="380" fill="#5c3317"/>
+  <ellipse cx="1314" cy="450" rx="85" ry="70" fill="#ffb7c5" opacity="0.9"/>
+  <rect x="1700" y="490" width="25" height="360" fill="#5c3317"/>
+  <ellipse cx="1712" cy="470" rx="75" ry="65" fill="#ffcad4" opacity="0.85"/>
+  <!-- Buildings -->
+  <rect x="700" y="500" width="200" height="300" fill="#e8d4b0" opacity="0.9"/>
+  <polygon points="680,500 920,500 800,400" fill="#8b4513" opacity="0.9"/>
+  <rect x="750" y="600" width="40" height="200" fill="#8b6040"/>
+  <rect x="1000" y="520" width="160" height="260" fill="#dcc8a0" opacity="0.9"/>
+  <polygon points="985,520 1175,520 1080,430" fill="#7a3a10" opacity="0.9"/>
+  <!-- Ground -->
+  <ellipse cx="960" cy="900" rx="960" ry="200" fill="#7ac550" opacity="0.8"/>
+  <rect x="0" y="850" width="1920" height="230" fill="#5a9540" opacity="0.7"/>
+  <!-- Path -->
+  <ellipse cx="960" cy="1000" rx="120" ry="100" fill="#c8b060" opacity="0.5"/>
+  <!-- Blossom petals falling -->
+  <ellipse cx="400" cy="700" rx="4" ry="6" fill="#ffb7c5" opacity="0.6" transform="rotate(-20 400 700)"/>
+  <ellipse cx="650" cy="650" rx="3" ry="5" fill="#ffcad4" opacity="0.5" transform="rotate(15 650 650)"/>
+  <ellipse cx="900" cy="720" rx="4" ry="6" fill="#ffb7c5" opacity="0.55" transform="rotate(-30 900 720)"/>
+</svg>
