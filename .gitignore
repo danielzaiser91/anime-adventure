@@ -4,3 +4,4 @@ generated-assets/
 .env
 .env.local
 *.local
+__notes/
