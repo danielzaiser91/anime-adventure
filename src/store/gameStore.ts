@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import i18n from '../i18n/index';
 import type { GameState, GameConsequences, SceneId, StatRequirement } from '../types/game.types';
 import { DEFAULT_STATS, FIRST_SCENE_ID } from '../types/game.types';
 import { applyConsequences, determineEnding, getScene, checkRequirements as engineCheckRequirements } from '../engine/storyEngine';
@@ -121,7 +122,10 @@ export const useGameStore = create<GameState>()(
         return engineCheckRequirements(state.stats, reqs);
       },
 
-      setLanguage: (lang: 'en' | 'de') => set({ language: lang }),
+      setLanguage: (lang: 'en' | 'de') => {
+        set({ language: lang });
+        void i18n.changeLanguage(lang);
+      },
       setPlayerName: (name: string) => set({ playerName: name }),
       setPaused: (paused: boolean) =>
         set({ currentPhase: paused ? 'paused' : 'playing' }),
