@@ -103,6 +103,7 @@
   },
   "settings": {
     "title": "Settings",
+    "joinDiscord": "Join Discord Server",
     "language": "Language",
     "textSpeed": "Text Speed",
     "slow": "Slow",
