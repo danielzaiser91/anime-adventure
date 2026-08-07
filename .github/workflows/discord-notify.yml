@@ -95,7 +95,9 @@ jobs:
               --arg username "Celestial Blade News" \
               --arg avatar "https://danielzaiser91.github.io/anime-adventure/assets/logo.svg" \
               --argjson embeds "$EMBEDS" \
-              '{"username": $username, "avatar_url": $avatar, "embeds": $embeds}' > "$TMPFILE"
+              '{"username": $username, "avatar_url": $avatar, "embeds": $embeds,
+                "content": "<@&1535341240894365707>",
+                "allowed_mentions": {"roles": ["1535341240894365707"]}}' > "$TMPFILE"
             RESPONSE=$(curl -s -f \
                             -H "Content-Type: application/json" \
                             -d "@$TMPFILE" \
