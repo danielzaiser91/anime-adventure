@@ -28,7 +28,7 @@ export function PauseMenu({ onClose }: Props) {
         <div className="flex items-center justify-between mb-4">
           <h2 className="font-cinzel text-celestial-gold text-xl">{t('pause.title')}</h2>
           <a
-            href="https://discord.gg/jVGRFTnJBm"
+            href="https://discord.gg/Mx3VYHWuZE"
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t('settings.joinDiscord')}
